@@ -4,13 +4,15 @@ import UILink from "./components/ui/UILink.vue";
 import RecipeSearch from "./components/RecipeSearch.vue";
 import RecipeSuggestion from "./components/RecipeSuggestion.vue";
 import RecipeBox from "./components/RecipeBox.vue";
+import MainMenu from "./components/MainMenu.vue";
 </script>
 
 <template>
   <div class="recipe-app">
     <UIHeading title="What's for Dinner?" class="main-heading"></UIHeading>
     <div class="main-content">
-      <div class="recipe-app-menu">
+      <MainMenu />
+      <!-- <div class="recipe-app-menu">
         <UILink
           class="recipe-app-menu-item"
           dest="search"
@@ -35,7 +37,7 @@ import RecipeBox from "./components/RecipeBox.vue";
           label="Cocktails"
           icon="wine_bar"
         ></UILink>
-      </div>
+      </div> -->
       <div class="recipe-app-content">
         <router-view></router-view>
       </div>
@@ -55,7 +57,7 @@ import RecipeBox from "./components/RecipeBox.vue";
 </style>
 <style scoped>
 .recipe-app {
-  max-width: 90%;
+  max-width: 60%;
   margin: 0 auto;
   text-align: center;
 }
@@ -69,22 +71,9 @@ import RecipeBox from "./components/RecipeBox.vue";
   display: flex;
   flex-direction: row;
 }
-.recipe-app-menu {
-  display: flex;
-  flex-direction: column;
-  /* flex-wrap: wrap; */
-  align-items: left;
-  font-family: "Inter-Regular", "sans-serif";
-}
-.recipe-app-menu-item {
-  /* text-wrap: nowrap; */
-  /* margin-top: 1rem; */
-  padding-bottom: 1em;
-  flex: 1 1 100%;
-}
-.recipe-app-content{
+.recipe-app-content {
   display: flex;
   flex-direction: row;
+  width: 100%;
 }
-
 </style>

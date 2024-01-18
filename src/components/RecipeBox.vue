@@ -13,5 +13,6 @@ import UIButton from './ui/UIButton.vue';
 .recipe-box{
     border: 1px solid darkorange;
     margin: 1em;
+    flex: 1;
 }
 </style>

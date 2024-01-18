@@ -18,8 +18,10 @@ import UIInput from './ui/UIInput.vue';
     flex-direction: column;
     border: 1px solid palegreen;
     margin: 1em;
+    flex: 1;
 }
 .recipe-search > * {
   padding: 0.5em;
+  width: cover;
 }
 </style>

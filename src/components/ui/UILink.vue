@@ -20,8 +20,8 @@ defineProps({
 </script>
 <template>
   <div class="ui-link">
-    <h3>{{ label }}</h3>
     <RouterLink :to="`/${dest}`" class="ui-link-anchor">
+      <h3>{{ label }}</h3>
       <span class="material-icons-round">{{ icon }}</span>
     </RouterLink>
   </div>
@@ -31,13 +31,18 @@ defineProps({
 .ui-link {
   position: relative;
 }
-.ui-link > h3 {
+.ui-link > a > h3 {
   margin: 0;
+  color: orange;
 }
 
-/* .ui-link:hover {
+.ui-link:hover {
   background-color: #f5e6cb;
-} */
+  color: rgb(166, 106, 33);
+  cursor: pointer;
+  font-weight: bold;
+  cursor: pointer;
+}
 .ui-link > .ui-link-anchor {
   height: 6rem;
   width: 6rem;
@@ -46,11 +51,5 @@ defineProps({
 .ui-link > .ui-link-anchor > span {
   font-size: 3rem;
   color: orange;
-}
-.ui-link > .ui-link-anchor > span:hover {
-  background-color: #f5e6cb;
-  border-radius: 90px;
-  color: darkorange;
-  cursor: pointer;
 }
 </style>

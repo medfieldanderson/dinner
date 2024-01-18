@@ -18,6 +18,7 @@ import UIHeading from './ui/UIHeading.vue';
 .recipe-highlight {
   border: 1px solid slateblue;
   margin: 1em;
+  flex: 1;
 }
 
 .recipe-highlight > ul {
