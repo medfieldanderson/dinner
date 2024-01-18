@@ -20,6 +20,7 @@ defineProps({
 .ui-input > input {
     border: 1px solid orange;
     border-radius: 5px;
-    padding: 0.25rem;
+    padding: 0.75rem;
+    font-size: 1em;
 }
 </style>
