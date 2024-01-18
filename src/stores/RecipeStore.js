@@ -7,4 +7,6 @@ export const useRecipeStore = defineStore("RecipeStore", {
       recipes: recipes,
     };
   },
+  actions:{},
+  getters:{}
 });

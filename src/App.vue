@@ -10,21 +10,7 @@ import { useRecipeStore } from "./stores/RecipeStore";
 
 const recipeStore = useRecipeStore();
 
-const ingredients = ref([]);
-const instructions = ref([]);
-const recipes = ref([]);
-
-ingredients.value.push(new Ingredient("chicken", 10, "ounces"));
-instructions.value.push(new Instruction("Do not rinse", 0));
-instructions.value.push(new Instruction("Bake at 350 for 40 minutes", 1));
-ingredients.value.push(new Ingredient("rice", 2, "cups"));
-instructions.value.push(new Instruction("Rinse rice in metal collander", 2));
-instructions.value.push(new Instruction(
-  "Cook rice in small rice cooker with slight over 2 cups water",
-  2
-));
-
-recipes.value.push(new Recipe("Chicken & Rice", "American", "comfort", ingredients, instructions));
+console.log(recipeStore.$state.recipes[0]);
 </script>
 
 <template>

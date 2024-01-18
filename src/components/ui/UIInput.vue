@@ -1,10 +1,17 @@
 <script setup>
 defineProps({
+  disabled: {
+    type: Boolean,
+    default: false,
+  }, 
+  placeholder: {
+    type: String,
+  }, 
   type: {
     type: String,
     default: "text",
   },
-  placeholder: {
+  value: {
     type: String,
   }
 });
@@ -12,7 +19,7 @@ defineProps({
 
 <template>
   <div class="ui-input">
-    <input :type="type" :placeholder="placeholder" required=true />
+    <input :type="type" :disabled="disabled" :placeholder="placeholder" :value="value" required=true />
   </div>
 </template>
 
@@ -22,5 +29,9 @@ defineProps({
     border-radius: 5px;
     padding: 0.75rem;
     font-size: 1em;
+}
+
+.ui-input > input:disabled {
+  background-color: bisque;
 }
 </style>
