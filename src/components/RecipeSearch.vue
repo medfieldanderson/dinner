@@ -5,7 +5,7 @@ import UIInput from './ui/UIInput.vue';
 </script>
 <template>
   <div class="recipe-search">
-    <UIHeading title="Recipe Search" />
+    <UIHeading title="Recipe Search" alignment="left" class="heading"/>
     <UIInput name="recipe" placeholder="recipe"/>
     <UIInput name="ingredient" placeholder="ingredient"/>
     <UIButton label="search"></UIButton>
@@ -16,12 +16,12 @@ import UIInput from './ui/UIInput.vue';
 .recipe-search {
     display: flex;
     flex-direction: column;
-    border: 1px solid palegreen;
-    margin: 1em;
+    border-top: 1px solid palegreen;
+    margin: 0 1em;
     flex: 1;
 }
-.recipe-search > * {
-  padding: 0.5em;
-  width: cover;
+
+.recipe-search > .heading {
+  padding: 1em;
 }
 </style>

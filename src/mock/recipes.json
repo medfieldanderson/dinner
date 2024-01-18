@@ -1,0 +1,29 @@
+[
+  {
+    "name": "Chicken & Rice",
+    "cuisine": "American",
+    "category": "comfort",
+    "ingredients": [
+      {
+        "name": "chicken",
+        "qty": 10,
+        "unit": "ounces"
+      },
+      {
+        "name": "rice",
+        "qty": 2,
+        "unit": "cups"
+      }
+    ],
+    "instructions": [
+      {
+        "action": "Do not rinse chicken",
+        "sort": 0
+      },
+      {
+        "action": "Bake chicken at 350 degrees for 40 minutes",
+        "sort": 1
+      }
+    ]
+  }
+]

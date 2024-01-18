@@ -5,12 +5,16 @@ defineProps({
     type: String,
     required: true,
   },
+  alignment: {
+    type: String,
+    default: "center"
+  }
 });
 </script>
 
 <template>
   <div class="ui-heading">
-    <h3>{{ title }}</h3>
+    <h3 :style="{'text-align': alignment}">{{ title }}</h3>
   </div>
 </template>
 
@@ -19,4 +23,5 @@ h3 {
   margin: 0;
   padding: 0;
 }
+
 </style>

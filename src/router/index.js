@@ -1,7 +1,8 @@
 import { createRouter, createWebHashHistory } from "vue-router";
+import RecipeHome from "../components/RecipeHome.vue"
 import RecipeSearch from "../components/RecipeSearch.vue";
-import RecipeBox from "../components/RecipeBox.vue";
-import RecipeSuggestion from "../components/RecipeSuggestion.vue";
+import RecipeAdd from "../components/RecipeAdd.vue";
+import RecipeSpotlight from "../components/RecipeSpotlight.vue";
 
 const router = createRouter({
   history: createWebHashHistory(),
@@ -9,6 +10,7 @@ const router = createRouter({
     {
       path: "/",
       name: "home",
+      component: RecipeHome
     },
     {
       path: "/search/",
@@ -18,12 +20,12 @@ const router = createRouter({
     {
       path: "/suggestions/",
       name: "suggestions",
-      component: RecipeSuggestion,
+      component: RecipeSpotlight,
     },
     {
       path: "/add-recipe/",
       name: "add-recipe",
-      component: RecipeBox,
+      component: RecipeAdd,
     },
     {
       path: "/cocktails/",

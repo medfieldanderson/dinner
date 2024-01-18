@@ -1,19 +1,13 @@
 <script setup>
-import UILink from './ui/UILink.vue';
+import UILink from "./ui/UILink.vue";
 </script>
 <template>
   <div class="recipe-app-menu">
     <UILink
       class="recipe-app-menu-item"
-      dest="search"
-      label="Search"
-      icon="search"
-    ></UILink>
-    <UILink
-      class="recipe-app-menu-item"
-      dest="suggestions"
-      label="Favorites"
-      icon="favorite"
+      dest="/"
+      label="Home"
+      icon="home"
     ></UILink>
     <UILink
       class="recipe-app-menu-item"
@@ -23,10 +17,28 @@ import UILink from './ui/UILink.vue';
     ></UILink>
     <UILink
       class="recipe-app-menu-item"
-      dest="cocktails"
-      label="Cocktails"
-      icon="wine_bar"
+      dest="search"
+      label="Search"
+      icon="search"
     ></UILink>
+    <UILink
+      class="recipe-app-menu-item"
+      dest="suggestions"
+      label="Classics"
+      icon="history"
+    ></UILink>
+    <!-- <UILink
+      class="recipe-app-menu-item"
+      dest="suggestions"
+      label="Resources"
+      icon="laptop"
+    ></UILink>
+    <UILink
+      class="recipe-app-menu-item"
+      dest="suggestions"
+      label="Takeout"
+      icon="takeout_dining"
+    ></UILink> -->
   </div>
 </template>
 
@@ -41,7 +53,7 @@ import UILink from './ui/UILink.vue';
 }
 .recipe-app-menu-item {
   padding: 0 1rem 1rem 1rem;
-  margin-bottom: 0.125rem;
+  margin-bottom: 0.5rem;
   flex: 1 1 100%;
 }
 </style>

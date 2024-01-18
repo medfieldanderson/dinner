@@ -1,8 +1,4 @@
 <script setup>
-// import 'material-icons/iconfont/filled.css';
-// import 'material-icons/iconfont/outlined.css';
-// import 'material-icons/iconfont/two-tone.css';
-// import 'material-icons/iconfont/sharp.css';
 import "material-icons/iconfont/round.css";
 defineProps({
   dest: {
@@ -44,12 +40,12 @@ defineProps({
   cursor: pointer;
 }
 .ui-link > .ui-link-anchor {
-  height: 6rem;
-  width: 6rem;
+  height: 6em;
+  width: 6em;
 
 }
 .ui-link > .ui-link-anchor > span {
-  font-size: 3rem;
+  font-size: 3em;
   color: orange;
 }
 </style>

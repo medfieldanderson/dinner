@@ -1,10 +1,30 @@
 <script setup>
+import { ref } from "vue";
 import UIHeading from "./components/ui/UIHeading.vue";
-import UILink from "./components/ui/UILink.vue";
-import RecipeSearch from "./components/RecipeSearch.vue";
-import RecipeSuggestion from "./components/RecipeSuggestion.vue";
-import RecipeBox from "./components/RecipeBox.vue";
 import MainMenu from "./components/MainMenu.vue";
+import { Recipe } from "./models/recipe";
+import { Ingredient } from "./models/ingredient";
+import { Instruction } from "./models/instruction";
+
+import { useRecipeStore } from "./stores/RecipeStore";
+
+const recipeStore = useRecipeStore();
+
+const ingredients = ref([]);
+const instructions = ref([]);
+const recipes = ref([]);
+
+ingredients.value.push(new Ingredient("chicken", 10, "ounces"));
+instructions.value.push(new Instruction("Do not rinse", 0));
+instructions.value.push(new Instruction("Bake at 350 for 40 minutes", 1));
+ingredients.value.push(new Ingredient("rice", 2, "cups"));
+instructions.value.push(new Instruction("Rinse rice in metal collander", 2));
+instructions.value.push(new Instruction(
+  "Cook rice in small rice cooker with slight over 2 cups water",
+  2
+));
+
+recipes.value.push(new Recipe("Chicken & Rice", "American", "comfort", ingredients, instructions));
 </script>
 
 <template>
@@ -12,32 +32,6 @@ import MainMenu from "./components/MainMenu.vue";
     <UIHeading title="What's for Dinner?" class="main-heading"></UIHeading>
     <div class="main-content">
       <MainMenu />
-      <!-- <div class="recipe-app-menu">
-        <UILink
-          class="recipe-app-menu-item"
-          dest="search"
-          label="Search"
-          icon="search"
-        ></UILink>
-        <UILink
-          class="recipe-app-menu-item"
-          dest="suggestions"
-          label="Favorites"
-          icon="favorite"
-        ></UILink>
-        <UILink
-          class="recipe-app-menu-item"
-          dest="add-recipe"
-          label="Add"
-          icon="add_circle"
-        ></UILink>
-        <UILink
-          class="recipe-app-menu-item"
-          dest="cocktails"
-          label="Cocktails"
-          icon="wine_bar"
-        ></UILink>
-      </div> -->
       <div class="recipe-app-content">
         <router-view></router-view>
       </div>
@@ -57,7 +51,7 @@ import MainMenu from "./components/MainMenu.vue";
 </style>
 <style scoped>
 .recipe-app {
-  max-width: 60%;
+  max-width: 80%;
   margin: 0 auto;
   text-align: center;
 }
