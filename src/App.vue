@@ -1,10 +1,6 @@
 <script setup>
-import { ref } from "vue";
 import UIHeading from "./components/ui/UIHeading.vue";
 import MainMenu from "./components/MainMenu.vue";
-import { Recipe } from "./models/recipe";
-import { Ingredient } from "./models/ingredient";
-import { Instruction } from "./models/instruction";
 
 import { useRecipeStore } from "./stores/RecipeStore";
 
@@ -55,5 +51,6 @@ console.log(recipeStore.$state.recipes[0]);
   display: flex;
   flex-direction: row;
   width: 100%;
+  height: 70vh;
 }
 </style>

@@ -46,14 +46,13 @@ import UILink from "./ui/UILink.vue";
 .recipe-app-menu {
   display: flex;
   flex-direction: column;
-  align-items: left;
+  align-items: flex-start baseline;
   font-family: "Inter-Regular", "sans-serif";
   background-color: beige;
   border: 0.125px solid silver;
 }
 .recipe-app-menu-item {
-  padding: 0 1rem 1rem 1rem;
-  margin-bottom: 0.5rem;
-  flex: 1 1 100%;
+  padding: 0 1rem;
+  flex: 1 1 25%;
 }
 </style>
