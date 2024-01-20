@@ -1,9 +1,9 @@
 <script setup>
-import UIHeading from './ui/UIHeading.vue';
+import Heading from './ui/UIHeading.vue';
 </script>
 <template>
   <div class="recipe-spotlight">
-    <UIHeading title="Recipe Suggestions" alignment="left" class="heading"/>
+    <Heading tag="h2" title="Recipe Spotlight" alignment="left" class="heading"/>
     <ul>
       <li>mac and cheese</li>
       <li>ground meat stew</li>

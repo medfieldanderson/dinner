@@ -1,10 +1,9 @@
 <script setup>
-import UIHeading from "./ui/UIHeading.vue";
-import UIButton from "./ui/UIButton.vue";
+import Heading from "./ui/UIHeading.vue";
 </script>
 <template>
   <div class="recipe-home">
-    <UIHeading title="Recipe Home" alignment="left" class="heading" />
+    <Heading tag="h2" title="Recipe Home" alignment="left" class="heading" />
     <main>
       <p>
         Bacon ipsum dolor amet rump corned beef turkey spare ribs pork loin

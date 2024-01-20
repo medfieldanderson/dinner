@@ -23,22 +23,22 @@ import UILink from "./ui/UILink.vue";
     ></UILink>
     <UILink
       class="recipe-app-menu-item"
-      dest="suggestions"
+      dest="spotlight"
       label="Classics"
       icon="history"
     ></UILink>
-    <!-- <UILink
+    <UILink
       class="recipe-app-menu-item"
-      dest="suggestions"
+      dest="resources"
       label="Resources"
       icon="laptop"
     ></UILink>
     <UILink
       class="recipe-app-menu-item"
-      dest="suggestions"
+      dest="takeout"
       label="Takeout"
       icon="takeout_dining"
-    ></UILink> -->
+    ></UILink>
   </div>
 </template>
 
@@ -46,13 +46,13 @@ import UILink from "./ui/UILink.vue";
 .recipe-app-menu {
   display: flex;
   flex-direction: column;
-  align-items: flex-start baseline;
+  height: 8em;
+  width: 8em;
+  
   font-family: "Inter-Regular", "sans-serif";
-  background-color: beige;
-  border: 0.125px solid silver;
 }
 .recipe-app-menu-item {
-  padding: 0 1rem;
-  flex: 1 1 25%;
+  padding: 0;
+  flex: 2 2 25%;
 }
 </style>

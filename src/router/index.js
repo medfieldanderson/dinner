@@ -3,6 +3,7 @@ import RecipeHome from "../components/RecipeHome.vue"
 import RecipeSearch from "../components/RecipeSearch.vue";
 import RecipeAdd from "../components/RecipeAdd.vue";
 import RecipeSpotlight from "../components/RecipeSpotlight.vue";
+import UnderConstruction from "../components/UnderConstruction.vue";
 
 const router = createRouter({
   history: createWebHashHistory(),
@@ -18,8 +19,8 @@ const router = createRouter({
       component: RecipeSearch,
     },
     {
-      path: "/suggestions/",
-      name: "suggestions",
+      path: "/spotlight/",
+      name: "spotlight",
       component: RecipeSpotlight,
     },
     {
@@ -30,6 +31,17 @@ const router = createRouter({
     {
       path: "/cocktails/",
       name: "cocktails",
+      component: UnderConstruction
+    },
+    {
+      path: "/resources/",
+      name: "resources",
+      component: UnderConstruction
+    },
+    {
+      path: "/takeout/",
+      name: "takeout",
+      component: UnderConstruction
     },
   ],
 });

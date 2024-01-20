@@ -1,14 +1,14 @@
 <script setup>
-import UIHeading from './ui/UIHeading.vue';
-import UIButton from './ui/UIButton.vue';
-import UIInput from './ui/UIInput.vue';
+import Heading from './ui/UIHeading.vue';
+import Button from './ui/UIButton.vue';
+import Input from './ui/UIInput.vue';
 </script>
 <template>
   <div class="recipe-search">
-    <UIHeading title="Recipe Search" alignment="left" class="heading"/>
-    <UIInput name="recipe" placeholder="recipe"/>
-    <UIInput name="ingredient" placeholder="ingredient"/>
-    <UIButton label="search"></UIButton>
+    <Heading tag="h2" title="Recipe Search" alignment="left" class="heading"/>
+    <Input name="recipe" placeholder="recipe"/>
+    <Input name="ingredient" placeholder="ingredient"/>
+    <Button label="search"></Button>
   </div>
 </template>
 

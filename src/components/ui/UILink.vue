@@ -1,5 +1,5 @@
 <script setup>
-import "material-icons/iconfont/outlined.css";
+import "material-icons/iconfont/round.css";
 defineProps({
   dest: {
     type: String,
@@ -17,7 +17,7 @@ defineProps({
 <template>
   <div class="ui-link">
     <RouterLink :to="`/${dest}`" class="ui-link-anchor">
-      <span class="material-icons-outlined icon">{{ icon }}</span>
+      <span class="material-icons-round icon">{{ icon }}</span>
       <span class="icon-label">{{ label }}</span>
     </RouterLink>
   </div>
@@ -40,7 +40,7 @@ defineProps({
   cursor: pointer;
 }
 .ui-link > .ui-link-anchor > .icon {
-  font-size: 5em;
+  font-size: 3em;
   color: orange;
 }
 .ui-link > .ui-link-anchor > .icon-label {

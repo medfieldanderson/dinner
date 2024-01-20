@@ -38,7 +38,7 @@ console.log(recipeStore.$state.recipes[0]);
   text-align: center;
 }
 .main-heading {
-  font-family: Cookie;
+  font-family:  Cookie, Gabriola, Segoe Script, serif;
   color: brown;
   font-size: 4rem;
   margin-top: 3rem;
@@ -48,6 +48,7 @@ console.log(recipeStore.$state.recipes[0]);
   flex-direction: row;
 }
 .recipe-app-content {
+  font-family: Inter-Regular;
   display: flex;
   flex-direction: row;
   width: 100%;

@@ -1,9 +1,5 @@
 <script setup>
 defineProps({
-  btnType: {
-    type: String,
-    default: "button",
-  },
   disabled: {
     type: Boolean,
     default: false,
@@ -15,12 +11,16 @@ defineProps({
   primary: {
     type: Boolean,
     default: false
+  },
+  type: {
+    type: String,
+    default: "button",
   }
 });
 </script>
 <template>
   <div class="ui-button">
-    <button :type="btnType" :disabled="disabled" :primary="primary">{{ label.toLocaleUpperCase() }}</button>
+    <button :type="type" :disabled=disabled :primary="primary">{{ label.toLocaleUpperCase() }}</button>
   </div>
 </template>
 
