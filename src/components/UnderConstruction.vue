@@ -16,4 +16,8 @@ console.log(pageTitle);
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.icon{
+  font-size:10em;
+}
+</style>

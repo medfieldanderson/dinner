@@ -171,6 +171,7 @@ const addRecipe = (e) => {
 .recipe-add {
   border-top: 1px solid darkorange;
   margin: 0 1em;
+  width: 100%;
   .basic-info,
   .ingredient-list,
   .instruction-list {
@@ -192,6 +193,7 @@ const addRecipe = (e) => {
 .recipe-detail {
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
   height: 100vh;
   border: 2px solid green;
   .ingredient-list,

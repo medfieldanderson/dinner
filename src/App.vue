@@ -51,6 +51,9 @@ console.log(recipeStore.$state.recipes[0]);
   font-family: Inter-Regular;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  justify-content: center;
   width: 100%;
   height: 70vh;
 }
