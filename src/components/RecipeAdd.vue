@@ -25,15 +25,20 @@ const model = ref({
 const ingredient = ref({
   id: "",
   item: "",
-  qty: 0,
+  qty: "",
   unit: "",
 });
 
 const instruction = ref({
   id: "",
   action: "",
-  sort: 0,
+  sort: null,
 });
+
+const clearIngredient = () => {
+  ingredient.value = {};
+  document.getElementById("item").focus();
+};
 
 const addIngredient = () => {
   const { item, qty, unit } = ingredient.value;
@@ -44,13 +49,29 @@ const addIngredient = () => {
     unit: unit,
   };
   model.value.ingredients.push(newIngredient);
+  clearIngredient();
 };
+
+const clearInstruction = () => {
+instruction.value = {};
+document.getElementById("action").focus();
+}
 
 const addInstruction = () => {
   const { action, sort } = instruction.value;
   const newInstruction = { id: uid(10), action: action, sort: sort };
   model.value.instructions.push(newInstruction);
+  clearInstruction();
 };
+
+const clearRecipe = () => {
+  model.value = {};
+  clearIngredient();
+  model.value.ingredients = []; //may not be necessary
+  clearInstruction();
+  model.value.instructions = []; // may not be necessary
+  document.getElementById("recipe").focus();
+}
 
 const addRecipe = async () => {
   const { recipe, cuisine, category } = model.value;
@@ -61,12 +82,12 @@ const addRecipe = async () => {
   console.log("MODEL", model.value);
   store.recipes.push(model.value);
 
-
   // firebase
   await setDoc(
     doc(db, "recipes", model.value.id),
     Object.assign({}, model.value)
   );
+  clearRecipe();
 };
 </script>
 <template>
@@ -83,7 +104,6 @@ const addRecipe = async () => {
           placeholder="recipe name"
           v-model="model.recipe"
         />
-
         <Input
           id="cuisine"
           name="cuisine"
@@ -118,7 +138,7 @@ const addRecipe = async () => {
           <Input
             id="qty"
             name="qty"
-            type="text"
+            type="number"
             placeholder="quantity"
             v-model="ingredient.qty"
           />
@@ -157,7 +177,7 @@ const addRecipe = async () => {
           <Input
             id="sort"
             name="sort"
-            type="text"
+            type="number"
             placeholder="order"
             v-model="instruction.sort"
           />
