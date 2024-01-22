@@ -2,11 +2,6 @@
 import UIHeading from "./components/ui/UIHeading.vue";
 import MainMenu from "./components/MainMenu.vue";
 
-import { useRecipeStore } from "./stores/RecipeStore";
-
-const recipeStore = useRecipeStore();
-console.log(recipeStore.$state.recipes[0]);
-
 </script>
 
 <template>

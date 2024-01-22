@@ -53,9 +53,9 @@ const addIngredient = () => {
 };
 
 const clearInstruction = () => {
-instruction.value = {};
-document.getElementById("action").focus();
-}
+  instruction.value = {};
+  document.getElementById("action").focus();
+};
 
 const addInstruction = () => {
   const { action, sort } = instruction.value;
@@ -71,7 +71,7 @@ const clearRecipe = () => {
   clearInstruction();
   model.value.instructions = []; // may not be necessary
   document.getElementById("recipe").focus();
-}
+};
 
 const addRecipe = async () => {
   model.value.id = uid(16);
@@ -88,12 +88,22 @@ const addRecipe = async () => {
   );
   clearRecipe();
 };
+
+// dialogs
+const showAddModal = (type) => {
+  const modal = document.getElementById(`add-${type}-modal`);
+  modal.showModal();
+};
+const hideAddModal = (type) => {
+  const modal = document.getElementById(`add-${type}-modal`);
+  modal.close();
+};
 </script>
 <template>
   <div class="recipe-add">
     <Heading tag="h2" title="Add Recipe" alignment="left" class="heading" />
     <form @submit.prevent="addRecipe">
-      <Button type="submit" label="add recipe" class="btn" />
+      <Button type="submit" label="add recipe" primary="true" />
       <Heading title="Basic Information" alignment="left" class="sub-heading" />
       <div class="basic-info">
         <Input
@@ -120,77 +130,116 @@ const addRecipe = async () => {
       </div>
     </form>
     <div class="recipe-detail">
-      <form @submit.prevent="addIngredient">
-        <div class="ingredient-list">
-          <Heading
-            title="Ingredient List"
-            alignment="left"
-            class="sub-heading"
+      <dialog id="add-ingredients-modal">
+        <form @submit.prevent="addIngredient">
+          <div class="ingredient-list">
+            <Heading
+              title="Ingredient List"
+              alignment="left"
+              class="sub-heading"
+            />
+            <Input
+              id="item"
+              name="item"
+              type="text"
+              placeholder="ingredient name"
+              v-model="ingredient.item"
+            />
+            <Input
+              id="qty"
+              name="qty"
+              type="number"
+              placeholder="quantity"
+              v-model="ingredient.qty"
+            />
+            <Input
+              id="unit"
+              name="unit"
+              type="text"
+              placeholder="unit"
+              v-model="ingredient.unit"
+            />
+            <Button type="submit" label="add ingredient" primary="true" />
+            <ul>
+              <template v-for="ingredient in model.ingredients">
+                <li>
+                  <!-- {{ ingredient.id }}  -->
+                  {{ ingredient.qty }}
+                  {{ ingredient.unit }}
+                  {{ ingredient.item }}
+                </li>
+              </template>
+            </ul>
+          </div>
+          <Button
+            id="close-ingredient-modal"
+            label="Close"
+            alignment="right"
+            @click="hideAddModal('ingredients')"
           />
-          <Input
-            id="item"
-            name="item"
-            type="text"
-            placeholder="ingredient name"
-            v-model="ingredient.item"
-          />
-          <Input
-            id="qty"
-            name="qty"
-            type="number"
-            placeholder="quantity"
-            v-model="ingredient.qty"
-          />
-          <Input
-            id="unit"
-            name="unit"
-            type="text"
-            placeholder="unit"
-            v-model="ingredient.unit"
-          />
-          <Button type="submit" label="add ingredient" class="btn" />
-          <ul>
-            <template v-for="ingredient in model.ingredients">
-              <li>
-                {{ ingredient.id }} {{ ingredient.qty }} {{ ingredient.unit }}
-                {{ ingredient.item }}
-              </li>
-            </template>
-          </ul>
-        </div>
-      </form>
-      <form @submit.prevent="addInstruction">
-        <div class="instruction-list">
-          <Heading
-            title="Instruction List"
-            alignment="left"
-            class="sub-heading"
-          />
-          <Input
-            id="action"
-            name="action"
-            type="text"
-            placeholder="instruction"
-            v-model="instruction.action"
-          />
-          <Input
-            id="sort"
-            name="sort"
-            type="number"
-            placeholder="order"
-            v-model="instruction.sort"
-          />
-          <Button label="add instruction" type="submit" class="btn" />
-          <ul>
-            <template v-for="instruction in model.instructions">
-              <li>
-                {{ instruction.id }} {{ instruction.action }}
-                {{ instruction.sort }}
-              </li>
-            </template>
-          </ul>
-        </div>
-      </form>
+        </form>
+      </dialog>
+      <dialog id="add-instructions-modal">
+        <form @submit.prevent="addInstruction">
+          <div class="instruction-list">
+            <Heading
+              title="Instruction List"
+              alignment="left"
+              class="sub-heading"
+            />
+            <Input
+              id="action"
+              name="action"
+              type="text"
+              placeholder="instruction"
+              v-model="instruction.action"
+            />
+            <Input
+              id="sort"
+              name="sort"
+              type="number"
+              placeholder="order"
+              v-model="instruction.sort"
+            />
+            <Button
+              label="add instruction"
+              type="submit"
+              primary="true"
+              @click="hideAddModal('instructions')"
+            />
+            <ul>
+              <template v-for="instruction in model.instructions">
+                <li>
+                  <!-- {{ instruction.id }}  -->
+                  {{ instruction.action }}
+                  {{ instruction.sort }}
+                </li>
+              </template>
+            </ul>
+
+            <Button
+              class="close-instruction-modal"
+              label="close"
+              alignment="right"
+              @click="hideAddModal('instructions')"
+            />
+          </div>
+        </form>
+        
+      </dialog>
+      <Button
+        id="add-ingredients"
+        label="add ingredients"
+        @click="showAddModal('ingredients')"
+      />
+      <!-- alignment="left" -->
+      <Button
+        id="add-instructions"
+        label="add instructions"
+        @click="showAddModal('instructions')"
+      />
+      <!-- alignment="left" -->
+
     </div>
 
     <Input id="id" name="id" type="text" v-model="model.id" :disabled="true" />

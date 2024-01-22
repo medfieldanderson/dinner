@@ -1,5 +1,17 @@
 <script setup>
+import { ref } from "vue";
 import Heading from "./ui/UIHeading.vue";
+import Button from "./ui/UIButton.vue";
+
+const showMessage = (e) => {
+  console.log("message shown");
+  const theModal = document.getElementById("the-modal");
+  theModal.showModal();
+}
+const closeModal = () => {
+  const theModal = document.getElementById("the-modal");
+  theModal.close();
+}
 </script>
 <template>
   <div class="recipe-home">
@@ -23,6 +35,12 @@ import Heading from "./ui/UIHeading.vue";
         boudin kielbasa pancetta pork loin sirloin bresaola beef ribs tail.
       </p>
     </main>
+    <Button class="open" label="See Message" @click="showMessage" />
+    <dialog id="the-modal">
+      Here's some stuff in a dialog.
+      
+      <Button class="close" @click="closeModal()">Ok</Button>
+    </dialog>
   </div>
 </template>
 
@@ -38,5 +56,12 @@ import Heading from "./ui/UIHeading.vue";
 .recipe-home > main > p {
     text-align: left;
     padding: 0 1em;
+}
+
+#the-modal {
+  &::backdrop{
+    background: rgb(255, 163, 114, 75%);
+  }
+  background-color: blanchedalmond;
 }
 </style>

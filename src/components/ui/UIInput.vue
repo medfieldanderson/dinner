@@ -47,7 +47,7 @@ defineProps({
   border: 1px solid orange;
   border-radius: 5px;
   padding: 0.75rem;
-  margin-right: 0.25em;
+  margin: 0.25em 0.25em 0 0 ;
   font-size: 1em;
 }
 
