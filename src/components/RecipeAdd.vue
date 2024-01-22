@@ -14,7 +14,7 @@ import { db } from "../firebase";
 const store = useRecipeStore();
 
 const model = ref({
-  id: uid(16),
+  id: "",
   recipe: "",
   cuisine: "",
   category: "",
@@ -25,7 +25,7 @@ const model = ref({
 const ingredient = ref({
   id: "",
   item: "",
-  qty: "",
+  qty: null,
   unit: "",
 });
 
@@ -74,8 +74,7 @@ const clearRecipe = () => {
 }
 
 const addRecipe = async () => {
-  const { recipe, cuisine, category } = model.value;
-  console.log("SUBMIT", recipe, cuisine, category);
+  model.value.id = uid(16);
 
   // NOTE:  How should local store and firebase work together
   // local store
