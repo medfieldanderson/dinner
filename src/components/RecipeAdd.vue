@@ -4,13 +4,12 @@ import Heading from "./ui/UIHeading.vue";
 import Input from "./ui/UIInput.vue";
 import Button from "./ui/UIButton.vue";
 
-import { Recipe} from "../models/recipe.js";
-import { Ingredient } from "../models/ingredient";
-import { Instruction } from "../models/instruction";
-
 import { useRecipeStore } from "../stores/RecipeStore";
 
 import { uid } from "uid/secure";
+
+import { doc, setDoc } from "firebase/firestore";
+import { db } from "../firebase";
 
 const store = useRecipeStore();
 
@@ -36,27 +35,38 @@ const instruction = ref({
   sort: 0,
 });
 
-const addIngredient = (e) => {
+const addIngredient = () => {
   const { item, qty, unit } = ingredient.value;
-  const newIngredient = new Ingredient(uid(10), item, qty, unit);
+  const newIngredient = {
+    id: uid(10),
+    item: item,
+    qty: qty,
+    unit: unit,
+  };
   model.value.ingredients.push(newIngredient);
 };
 
-const addInstruction = (e) => {
+const addInstruction = () => {
   const { action, sort } = instruction.value;
-  const newInstruction = new Instruction(uid(10), action, sort);
+  const newInstruction = { id: uid(10), action: action, sort: sort };
   model.value.instructions.push(newInstruction);
 };
 
-const addRecipe = (e) => {
+const addRecipe = async () => {
   const { recipe, cuisine, category } = model.value;
   console.log("SUBMIT", recipe, cuisine, category);
-  const elements = e.target.elements;
-  console.log(elements);
-  console.log(model.value);
 
+  // NOTE:  How should local store and firebase work together
+  // local store
+  console.log("MODEL", model.value);
   store.recipes.push(model.value);
 
+
+  // firebase
+  await setDoc(
+    doc(db, "recipes", model.value.id),
+    Object.assign({}, model.value)
+  );
 };
 </script>
 <template>
@@ -155,7 +165,8 @@ const addRecipe = (e) => {
           <ul>
             <template v-for="instruction in model.instructions">
               <li>
-                {{ instruction.id }} {{ instruction.action }} {{ instruction.sort }}
+                {{ instruction.id }} {{ instruction.action }}
+                {{ instruction.sort }}
               </li>
             </template>
           </ul>
