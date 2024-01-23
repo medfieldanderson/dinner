@@ -103,31 +103,44 @@ const hideAddModal = (type) => {
   <div class="recipe-add">
     <Heading tag="h2" title="Add Recipe" alignment="left" class="heading" />
     <form @submit.prevent="addRecipe">
-      <Button type="submit" label="add recipe" primary="true" />
       <Heading title="Basic Information" alignment="left" class="sub-heading" />
       <div class="basic-info">
         <Input
-          id="recipe"
-          name="recipe"
-          type="text"
-          placeholder="recipe name"
-          v-model="model.recipe"
+        id="recipe"
+        name="recipe"
+        type="text"
+        placeholder="recipe name"
+        v-model="model.recipe"
         />
         <Input
-          id="cuisine"
-          name="cuisine"
-          type="text"
-          placeholder="cuisine"
-          v-model="model.cuisine"
+        id="cuisine"
+        name="cuisine"
+        type="text"
+        placeholder="cuisine"
+        v-model="model.cuisine"
         />
         <Input
-          id="category"
-          name="category"
-          type="text"
-          placeholder="category"
-          v-model="model.category"
+        id="category"
+        name="category"
+        type="text"
+        placeholder="category"
+        v-model="model.category"
         />
       </div>
+      <Button
+        id="add-ingredients"
+        label="add ingredients"
+        @click="showAddModal('ingredients')"
+      />
+      <!-- alignment="left" -->
+      <Button
+        id="add-instructions"
+        label="add instructions"
+        @click="showAddModal('instructions')"
+      />
+      <!-- alignment="left" -->
+
+      <Button type="submit" label="add recipe" :primary="true" />
     </form>
     <div class="recipe-detail">
       <dialog id="add-ingredients-modal">
@@ -159,7 +172,7 @@ const hideAddModal = (type) => {
               placeholder="unit"
               v-model="ingredient.unit"
             />
-            <Button type="submit" label="add ingredient" primary="true" />
+            <Button type="submit" label="add ingredient" :primary="true" />
             <ul>
               <template v-for="ingredient in model.ingredients">
                 <li>
@@ -204,7 +217,7 @@ const hideAddModal = (type) => {
             <Button
               label="add instruction"
               type="submit"
-              primary="true"
+              :primary="true"
               @click="hideAddModal('instructions')"
             />
             <ul>
@@ -225,21 +238,7 @@ const hideAddModal = (type) => {
             />
           </div>
         </form>
-        
       </dialog>
-      <Button
-        id="add-ingredients"
-        label="add ingredients"
-        @click="showAddModal('ingredients')"
-      />
-      <!-- alignment="left" -->
-      <Button
-        id="add-instructions"
-        label="add instructions"
-        @click="showAddModal('instructions')"
-      />
-      <!-- alignment="left" -->
-
     </div>
 
     <Input id="id" name="id" type="text" v-model="model.id" :disabled="true" />
@@ -271,10 +270,9 @@ const hideAddModal = (type) => {
 }
 .recipe-detail {
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  height: 100vh;
-  border: 2px solid green;
+  flex-direction: column;
+  justify-content: start;
+  /* height: 100vh; */
   .ingredient-list,
   .instruction-list {
     flex: 1 1 100%;

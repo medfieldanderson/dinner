@@ -1,7 +1,6 @@
 <script setup>
 import UIHeading from "./components/ui/UIHeading.vue";
 import MainMenu from "./components/MainMenu.vue";
-
 </script>
 
 <template>
@@ -33,7 +32,7 @@ import MainMenu from "./components/MainMenu.vue";
   text-align: center;
 }
 .main-heading {
-  font-family:  Cookie, Gabriola, Segoe Script, serif;
+  font-family: Cookie, Gabriola, Segoe Script, serif;
   color: brown;
   font-size: 4rem;
   margin-top: 3rem;
@@ -51,5 +50,16 @@ import MainMenu from "./components/MainMenu.vue";
   justify-content: center;
   width: 100%;
   height: 70vh;
+}
+</style>
+<style>
+dialog {
+  border: 3px solid navy;
+  border-radius: 15px;
+  background-color: rgb(255, 235, 205, 80%);
+  width: 30rem;
+  &::backdrop {
+    background: rgb(66, 71, 105, 45%);
+  }
 }
 </style>

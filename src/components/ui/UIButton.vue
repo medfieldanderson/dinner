@@ -38,14 +38,13 @@ defineProps({
 
 <style scoped>
 .ui-button > button {
+  color: navy;
   &.btn {
-    margin: 0.5rem;
+    margin: 0.5rem 0.5rem 0.5rem 0;
   }
-  /* background-color: silver; */
-  color: #145fed;
-  border: 1px solid black;
   &:hover {
-    background-color: silver;
+    background-color: #ecf0f7;
+    border: 1px solid navy;
   }
   &.btn-primary {
     background-color: #145fed;

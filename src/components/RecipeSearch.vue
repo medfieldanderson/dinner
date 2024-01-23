@@ -31,7 +31,7 @@ const searchRecipes = async () => {
     <Heading tag="h2" title="Recipe Search" alignment="left" class="heading" />
     <Input name="recipe" placeholder="recipe" v-model="inputRecipe"/>
     <!-- <Input name="ingredient" placeholder="ingredient" /> -->
-    <Button label="search" @click="searchRecipes" primary="true"></Button>
+    <Button label="search" @click="searchRecipes" :primary="true"></Button>
     <div class="recipe-results">
       <h2>Results</h2>
       <ul>

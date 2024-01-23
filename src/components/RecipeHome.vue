@@ -58,10 +58,4 @@ const closeModal = () => {
     padding: 0 1em;
 }
 
-#the-modal {
-  &::backdrop{
-    background: rgb(255, 163, 114, 75%);
-  }
-  background-color: blanchedalmond;
-}
 </style>
