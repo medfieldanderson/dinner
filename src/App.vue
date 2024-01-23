@@ -5,9 +5,9 @@ import MainMenu from "./components/MainMenu.vue";
 
 <template>
   <div class="recipe-app">
+    <MainMenu class="main-menu" />
     <UIHeading title="What's for Dinner?" class="main-heading"></UIHeading>
     <div class="main-content">
-      <MainMenu />
       <div class="recipe-app-content">
         <router-view></router-view>
       </div>
@@ -26,20 +26,33 @@ import MainMenu from "./components/MainMenu.vue";
 }
 </style>
 <style scoped>
+
 .recipe-app {
-  max-width: 80%;
+  position: relative;
+  max-width: 100%;
+  min-width: 450px;
   margin: 0 auto;
   text-align: center;
+  .main-menu {
+    display: inline;
+    left: 0;
+    /* top: 0; */
+    position: absolute;
+    max-width: 100%;
+    text-align: center;
+    margin-left: 1em;
+  }
 }
 .main-heading {
   font-family: Cookie, Gabriola, Segoe Script, serif;
   color: brown;
   font-size: 4rem;
-  margin-top: 3rem;
+  margin-top: 2rem;
 }
 .main-content {
-  display: flex;
+  display: inline-flex;
   flex-direction: row;
+  margin-left: 4em;
 }
 .recipe-app-content {
   font-family: Inter-Regular;

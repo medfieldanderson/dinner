@@ -2,7 +2,7 @@
 import UILink from "./ui/UILink.vue";
 </script>
 <template>
-  <div class="recipe-app-menu">
+  <nav class="recipe-app-menu">
     <UILink
       class="recipe-app-menu-item"
       dest="/"
@@ -10,16 +10,16 @@ import UILink from "./ui/UILink.vue";
       icon="home"
     ></UILink>
     <UILink
+    class="recipe-app-menu-item"
+    dest="search"
+    label="Search"
+    icon="search"
+    ></UILink>
+    <UILink
       class="recipe-app-menu-item"
       dest="add-recipe"
       label="Add"
       icon="add_circle"
-    ></UILink>
-    <UILink
-      class="recipe-app-menu-item"
-      dest="search"
-      label="Search"
-      icon="search"
     ></UILink>
     <UILink
       class="recipe-app-menu-item"
@@ -39,15 +39,15 @@ import UILink from "./ui/UILink.vue";
       label="Takeout"
       icon="takeout_dining"
     ></UILink>
-  </div>
+  </nav>
 </template>
 
 <style scoped>
 .recipe-app-menu {
   display: flex;
   flex-direction: column;
-  height: 8em;
-  width: 8em;
+  height: fit-content;
+  width: fit-content;
 
   font-family: "Inter-Regular", "sans-serif";
 }
