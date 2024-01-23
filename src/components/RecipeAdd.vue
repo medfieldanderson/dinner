@@ -103,28 +103,27 @@ const hideAddModal = (type) => {
   <div class="recipe-add">
     <Heading tag="h2" title="Add Recipe" alignment="left" class="heading" />
     <form @submit.prevent="addRecipe">
-      <Heading title="Basic Information" alignment="left" class="sub-heading" />
-      <div class="basic-info">
+      <div>
         <Input
-        id="recipe"
-        name="recipe"
-        type="text"
-        placeholder="recipe name"
-        v-model="model.recipe"
+          id="recipe"
+          name="recipe"
+          type="text"
+          placeholder="recipe name"
+          v-model="model.recipe"
         />
         <Input
-        id="cuisine"
-        name="cuisine"
-        type="text"
-        placeholder="cuisine"
-        v-model="model.cuisine"
+          id="cuisine"
+          name="cuisine"
+          type="text"
+          placeholder="cuisine"
+          v-model="model.cuisine"
         />
         <Input
-        id="category"
-        name="category"
-        type="text"
-        placeholder="category"
-        v-model="model.category"
+          id="category"
+          name="category"
+          type="text"
+          placeholder="category"
+          v-model="model.category"
         />
       </div>
       <Button
@@ -132,14 +131,11 @@ const hideAddModal = (type) => {
         label="add ingredients"
         @click="showAddModal('ingredients')"
       />
-      <!-- alignment="left" -->
       <Button
         id="add-instructions"
         label="add instructions"
         @click="showAddModal('instructions')"
       />
-      <!-- alignment="left" -->
-
       <Button type="submit" label="add recipe" :primary="true" />
     </form>
     <div class="recipe-detail">
@@ -173,9 +169,9 @@ const hideAddModal = (type) => {
               v-model="ingredient.unit"
             />
             <Button type="submit" label="add ingredient" :primary="true" />
-            <ul>
+            <ul class="item-list">
               <template v-for="ingredient in model.ingredients">
-                <li>
+                <li class="list-item">
                   <!-- {{ ingredient.id }}  -->
                   {{ ingredient.qty }}
                   {{ ingredient.unit }}
@@ -220,9 +216,9 @@ const hideAddModal = (type) => {
               :primary="true"
               @click="hideAddModal('instructions')"
             />
-            <ul>
+            <ul class="item-list">
               <template v-for="instruction in model.instructions">
-                <li>
+                <li class="list-item">
                   <!-- {{ instruction.id }}  -->
                   {{ instruction.action }}
                   {{ instruction.sort }}
@@ -250,7 +246,6 @@ const hideAddModal = (type) => {
   border-top: 1px solid darkorange;
   margin: 0 1em;
   width: 100%;
-  .basic-info,
   .ingredient-list,
   .instruction-list {
     display: flex;

@@ -51,15 +51,9 @@ import MainMenu from "./components/MainMenu.vue";
   width: 100%;
   height: 70vh;
 }
-</style>
-<style>
-dialog {
-  border: 3px solid navy;
-  border-radius: 15px;
-  background-color: rgb(255, 235, 205, 80%);
-  width: 30rem;
-  &::backdrop {
-    background: rgb(66, 71, 105, 45%);
+@media (max-width: 600px) {
+  .main-heading {
+    font-size: 3rem;
   }
 }
 </style>

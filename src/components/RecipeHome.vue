@@ -1,5 +1,4 @@
 <script setup>
-import { ref } from "vue";
 import Heading from "./ui/UIHeading.vue";
 import Button from "./ui/UIButton.vue";
 
