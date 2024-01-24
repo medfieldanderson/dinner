@@ -101,7 +101,8 @@ const hideAddModal = (type) => {
 </script>
 <template>
   <div class="recipe-add">
-    <Heading tag="h2" title="Add Recipe" alignment="left" class="heading" />
+    <!-- <Heading tag="h2" title="Add Recipe" alignment="left" class="heading" /> -->
+    <Heading tag="h2" title="Add Recipe" class="heading" />
     <form @submit.prevent="addRecipe">
       <div>
         <Input

@@ -10,10 +10,10 @@ import UILink from "./ui/UILink.vue";
       icon="home"
     ></UILink>
     <UILink
-    class="recipe-app-menu-item"
-    dest="search"
-    label="Search"
-    icon="search"
+      class="recipe-app-menu-item"
+      dest="search"
+      label="Search"
+      icon="search"
     ></UILink>
     <UILink
       class="recipe-app-menu-item"
@@ -48,16 +48,16 @@ import UILink from "./ui/UILink.vue";
   flex-direction: column;
   height: fit-content;
   width: fit-content;
-
   font-family: "Inter-Regular", "sans-serif";
-}
-.recipe-app-menu-item {
-  padding: 0;
-  flex: 2 2 25%;
+  z-index: 1;
+  .recipe-app-menu-item {
+    padding: 0;
+    flex: 2 2 25%;
+  }
 }
 @media (max-width: 600px) {
   .recipe-app-menu-item {
-    font-size: 1rem;
+    font-size: 0.75rem;
   }
 }
 </style>

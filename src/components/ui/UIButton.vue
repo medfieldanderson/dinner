@@ -29,7 +29,7 @@ defineProps({
       :disabled="disabled"
       class="btn"
       :class="{ 'btn-primary': primary }"
-      :style="{ 'float': alignment }"
+      :style="{ float: alignment }"
     >
       {{ label.toLocaleUpperCase() }}
     </button>
@@ -39,12 +39,25 @@ defineProps({
 <style scoped>
 .ui-button > button {
   &.btn {
+    font-family: inherit;
+    font-size: 1em;
+    cursor: pointer;
+    transition: border-color 0.75s;
+
     margin: 0.5rem;
     border: 0.5px solid rgb(229, 221, 221);
+    border-radius: 8px;
+    padding: 0.6em 1.2em;
+
     &:hover {
       background-color: #ecf0f7;
       border: 1px solid navy;
+      border-color: #646cff;
     }
+    &:focus,
+    &:focus-visible {
+      outline: 4px auto -webkit-focus-ring-color;
+    } 
   }
   &.btn-primary {
     background-color: #145fed;

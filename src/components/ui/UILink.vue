@@ -25,9 +25,7 @@ defineProps({
 
 <style scoped>
 .ui-link-anchor{
-  /* margin: 0.125rem; */
-  padding: 0.125rem;
-  border: 5px solid rgb(236, 236, 242);
+  margin: 0.25rem;
   .ui-link {
     * {
       display: block;

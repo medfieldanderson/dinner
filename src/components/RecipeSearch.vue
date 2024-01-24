@@ -28,7 +28,8 @@ const searchRecipes = async () => {
 </script>
 <template>
   <div class="recipe-search">
-    <Heading tag="h2" title="Recipe Search" alignment="left" class="heading" />
+    <!-- <Heading tag="h2" title="Recipe Search" alignment="left" class="heading" /> -->
+    <Heading tag="h2" title="Recipe Search" class="heading" />
     <Input name="recipe" placeholder="recipe" v-model="inputRecipe"/>
     <!-- <Input name="ingredient" placeholder="ingredient" /> -->
     <Button label="search" @click="searchRecipes" :primary="true"></Button>
@@ -50,8 +51,8 @@ const searchRecipes = async () => {
   border-top: 1px solid palegreen;
   margin: 0 1em;
   flex: 1;
-}
-.recipe-search > .heading {
-  padding: 1em;
+  .heading {
+    padding: 1em;
+  }
 }
 </style>

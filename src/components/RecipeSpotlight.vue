@@ -23,12 +23,13 @@ onMounted(async () => {
 </script>
 <template>
   <div class="recipe-spotlight">
-    <Heading
+    <!-- <Heading
       tag="h2"
       title="Recipe Spotlight"
       alignment="left"
       class="heading"
-    />
+    /> -->
+    <Heading tag="h2" title="Recipe Spotlight" class="heading" />
     <ul>
       <li>mac and cheese</li>
       <li>ground meat stew</li>
@@ -64,6 +65,5 @@ onMounted(async () => {
 .recipe-spotlight > ul > li:hover {
   background-color: #f5e6cb;
   border-radius: 20px;
-  /* border-bottom: 1px dotted blue; */
 }
 </style>

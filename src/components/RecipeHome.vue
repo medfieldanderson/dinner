@@ -14,7 +14,8 @@ const closeModal = () => {
 </script>
 <template>
   <div class="recipe-home">
-    <Heading tag="h2" title="Recipe Home" alignment="left" class="heading" />
+    <!-- <Heading tag="h2" title="Recipe Home" alignment="left" class="heading" /> -->
+    <Heading tag="h2" title="Recipe Home" class="heading" />
     <main>
       <p>
         Bacon ipsum dolor amet rump corned beef turkey spare ribs pork loin
@@ -48,13 +49,13 @@ const closeModal = () => {
   border-top: 1px solid darkorange;
   margin: 0 1em;
   flex: 1;
-}
-.recipe-home > .heading {
-  padding: 1em;
-}
-.recipe-home > main > p {
-    text-align: left;
-    padding: 0 1em;
+  .heading {
+    padding: 1em;
+  }
+  main > p {
+      text-align: left;
+      padding: 0 1em;
+  }
 }
 
 </style>
