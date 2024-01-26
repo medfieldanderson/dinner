@@ -55,12 +55,6 @@ import MainMenu from "./components/MainMenu.vue";
       /* height: 70vh; */
     }
   }
-  .ui-content,
-  .ui-backdrop {
-    /* position: absolute; */
-    /* top: 3em;
-    left: 5em; */
-  }
 }
 
 

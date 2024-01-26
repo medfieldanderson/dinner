@@ -11,7 +11,6 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  primary: orange;
 }
 
 a {
@@ -33,21 +32,18 @@ h1 {
   line-height: 1.1;
 }
 
-button {
-  /* transition: border-color 0.5s; */
-}
-button:hover {
-}
-
 dialog {
-  border: 3px solid navy;
+  border: 1px solid navy;
   border-radius: 15px;
-  background-color: rgb(255, 235, 205, 50%);
+  background-color: rgb(255, 235, 205, 80%);
   backdrop-filter: blur(3px);
+  box-shadow: 10px 5px 5px rgb(0, 0, 128, .45);
+
   width: 30rem;
   &::backdrop {
     background: rgb(66, 71, 105, 45%);
   }
+
 }
 
 ul > li {
