@@ -28,7 +28,7 @@ defineProps({
       :type="type"
       :disabled="disabled"
       class="btn"
-      :class="{ 'primary': primary }"
+      :class="{ primary: primary }"
       :style="{ float: alignment }"
     >
       {{ label.toLocaleUpperCase() }}
@@ -37,7 +37,6 @@ defineProps({
 </template>
 
 <style scoped>
-
 div.ui-button {
   --button-bg-color: rgb(214, 240, 240);
   --button-fg-color: #222;
@@ -47,9 +46,10 @@ div.ui-button {
   --disabled-bg-color: silver;
   --disabled-fg-color: gray;
 
-
   pointer-events: none;
   button {
+    /* background-color: var(--primary-bg-color);
+    color: var(--primary-fg-color); */
     background-color: var(--button-bg-color);
     color: var(--button-fg-color);
     pointer-events: all;
@@ -62,11 +62,12 @@ div.ui-button {
     margin: 0.5rem;
     padding: 0.6em 1.2em;
 
-    filter: brightness(1);
+    /* filter: hue-rotate(65deg); */
 
     &.primary {
       background-color: var(--primary-bg-color);
       color: var(--primary-fg-color);
+      /* filter: none; */
     }
     &:focus,
     &:focus-visible {
@@ -78,6 +79,9 @@ div.ui-button {
       filter: brightness(110%);
     }
     &:disabled {
+
+      /* filter: grayscale(35%);
+      color: gray; */
       cursor: default;
       background-color: var(--disabled-bg-color);
       color: var(--disabled-fg-color);
