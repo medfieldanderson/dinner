@@ -1,17 +1,17 @@
 <script setup>
-import { ref } from "vue";
+import { computed, ref } from "vue";
 import Heading from "./ui/UIHeading.vue";
 import Input from "./ui/UIInput.vue";
 import Button from "./ui/UIButton.vue";
 
-import { useRecipeStore } from "../stores/RecipeStore";
+// import { useRecipeStore } from "../stores/RecipeStore";
 
 import { uid } from "uid/secure";
 
 import { doc, setDoc } from "firebase/firestore";
 import { db } from "../firebase";
 
-const store = useRecipeStore();
+// const store = useRecipeStore();
 
 const model = ref({
   id: "",
@@ -73,13 +73,23 @@ const clearRecipe = () => {
   document.getElementById("recipe").focus();
 };
 
+const isAddRecipeEnabled = computed(() => {
+  return (
+    !!model.value.recipe &&
+    !!model.value.cuisine &&
+    !!model.value.category &&
+    model.value.ingredients.length > 0 
+    && model.value.instructions.length > 0
+  );
+});
+
 const addRecipe = async () => {
   model.value.id = uid(16);
 
   // NOTE:  How should local store and firebase work together
   // local store
   console.log("MODEL", model.value);
-  store.recipes.push(model.value);
+  // store.recipes.push(model.value);
 
   // firebase
   await setDoc(
@@ -101,7 +111,6 @@ const hideAddModal = (type) => {
 </script>
 <template>
   <div class="recipe-add">
-    <!-- <Heading tag="h2" title="Add Recipe" alignment="left" class="heading" /> -->
     <Heading tag="h2" title="Add Recipe" class="heading" />
     <form @submit.prevent="addRecipe">
       <div>
@@ -137,7 +146,12 @@ const hideAddModal = (type) => {
         label="add instructions"
         @click="showAddModal('instructions')"
       />
-      <Button type="submit" label="add recipe" :primary="true" />
+      <Button
+        type="submit"
+        label="add recipe"
+        :primary="true"
+        :disabled="!isAddRecipeEnabled"
+      />
     </form>
     <div class="recipe-detail">
       <dialog id="add-ingredients-modal">
@@ -173,7 +187,6 @@ const hideAddModal = (type) => {
             <ul class="item-list">
               <template v-for="ingredient in model.ingredients">
                 <li class="list-item">
-                  <!-- {{ ingredient.id }}  -->
                   {{ ingredient.qty }}
                   {{ ingredient.unit }}
                   {{ ingredient.item }}
@@ -220,7 +233,6 @@ const hideAddModal = (type) => {
             <ul class="item-list">
               <template v-for="instruction in model.instructions">
                 <li class="list-item">
-                  <!-- {{ instruction.id }}  -->
                   {{ instruction.action }}
                   {{ instruction.sort }}
                 </li>
@@ -237,6 +249,17 @@ const hideAddModal = (type) => {
         </form>
       </dialog>
     </div>
+
+    <ul v-if="model.ingredients.length > 0">
+      <template v-for="ingredient in model.ingredients"> 
+        <li>{{ ingredient.qty }} {{ ingredient.unit }} {{ ingredient.item }}</li>
+      </template>
+    </ul>
+    <ul v-if="model.instructions.length > 0">
+      <template v-for="instruction in model.instructions"> 
+        <li>{{ instruction.action }}</li>
+      </template>
+    </ul>
 
     <Input id="id" name="id" type="text" v-model="model.id" :disabled="true" />
   </div>
@@ -268,7 +291,6 @@ const hideAddModal = (type) => {
   display: flex;
   flex-direction: column;
   justify-content: start;
-  /* height: 100vh; */
   .ingredient-list,
   .instruction-list {
     flex: 1 1 100%;

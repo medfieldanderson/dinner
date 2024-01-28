@@ -28,7 +28,7 @@ defineProps({
       :type="type"
       :disabled="disabled"
       class="btn"
-      :class="{ 'btn-primary': primary }"
+      :class="{ 'primary': primary }"
       :style="{ float: alignment }"
     >
       {{ label.toLocaleUpperCase() }}
@@ -37,33 +37,51 @@ defineProps({
 </template>
 
 <style scoped>
-.ui-button > button {
-  &.btn {
+
+div.ui-button {
+  --button-bg-color: rgb(214, 240, 240);
+  --button-fg-color: #222;
+  --button-border: navy;
+  --primary-bg-color: #145fed;
+  --primary-fg-color: #eeeeee;
+  --disabled-bg-color: silver;
+  --disabled-fg-color: gray;
+
+
+  pointer-events: none;
+  button {
+    background-color: var(--button-bg-color);
+    color: var(--button-fg-color);
+    pointer-events: all;
     font-family: inherit;
     font-size: 1em;
     cursor: pointer;
-    transition: border-color 0.75s;
-
-    margin: 0.5rem;
     border: 0.5px solid rgb(229, 221, 221);
     border-radius: 8px;
+    transition: border-color 0.75s;
+    margin: 0.5rem;
     padding: 0.6em 1.2em;
 
-    &:hover {
-      background-color: #ecf0f7;
-      border: 1px solid navy;
-      border-color: #646cff;
+    filter: brightness(1);
+
+    &.primary {
+      background-color: var(--primary-bg-color);
+      color: var(--primary-fg-color);
     }
     &:focus,
     &:focus-visible {
       outline: 4px auto -webkit-focus-ring-color;
-    } 
-  }
-  &.btn-primary {
-    background-color: #145fed;
-    color: #eeeddd;
+    }
     &:hover {
-      background-color: #063ea5;
+      border: 1px solid var(--button-border);
+      border-color: #8b8ece;
+      filter: brightness(110%);
+    }
+    &:disabled {
+      cursor: default;
+      background-color: var(--disabled-bg-color);
+      color: var(--disabled-fg-color);
+      border: 1px solid var(--disabled-bg-border);
     }
   }
 }

@@ -52,7 +52,6 @@ import MainMenu from "./components/MainMenu.vue";
       align-content: flex-start;
       justify-content: center;
       width: 100%;
-      /* height: 70vh; */
     }
   }
 }
