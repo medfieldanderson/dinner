@@ -50,6 +50,7 @@ import UILink from "./ui/UILink.vue";
   width: fit-content;
   font-family: "Inter-Regular", "sans-serif";
   z-index: 1;
+  padding-left: 0.5em;
   .recipe-app-menu-item {
     padding: 0;
     flex: 2 2 25%;

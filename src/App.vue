@@ -7,7 +7,8 @@ import MainMenu from "./components/MainMenu.vue";
 
 <template>
   <div class="container">
-    <UIHeading title="What's for Dinner?" class="main-heading" :style="{'display': 'none'}"></UIHeading>
+    <!-- <UIHeading title="What's for Dinner?" class="main-heading" :style="{'display': 'none'}"></UIHeading> -->
+    <UIHeading title="What's for Dinner?" class="main-heading" ></UIHeading>
     <MainMenu class="main-menu" />
     <div class="recipe-app">
       <UIContent class="ui-content">

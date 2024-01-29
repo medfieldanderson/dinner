@@ -25,24 +25,23 @@ defineProps({
 
 <style scoped>
 .ui-link-anchor{
+  --ui-link-color: #FE7A36;
+  --ui-link-shadow: brown;
   margin: 0.25rem;
   .ui-link {
     * {
       display: block;
-      color: orange;
-      font-size: 2.5em;
+      color: var(--ui-link-color);
+      font-size: 4.5em;
     }
     .icon-label {
-      font-size: 0.65rem;
+      font-size: 1rem;
     }
     
     &:hover {
-      background-color: #f5e6cb;
-      /* color: rgb(166, 106, 33); */
-      color: darkgoldenrod;
+      filter: drop-shadow(0 0 0.75rem var(--ui-link-shadow));
       cursor: pointer;
-      font-weight: bold;
-      cursor: pointer;
+      
     }
   }
 }
