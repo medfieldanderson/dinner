@@ -33,13 +33,32 @@ const searchRecipes = async () => {
     <Input name="recipe" placeholder="recipe" v-model="inputRecipe"/>
     <!-- <Input name="ingredient" placeholder="ingredient" /> -->
     <Button label="search" @click="searchRecipes" :primary="true"></Button>
-    <div class="recipe-results">
+    <div>
       <h2>Results</h2>
-      <ul>
+      <div class="recipe-results">
         <template v-for="item in recipeList">
-          <li>{{ item.recipe }}</li>
+          <div class="result">
+            <h3>{{ item.recipe }}</h3>
+          </div>
+          <div class="result">
+            <div>{{ item.cuisine }}</div>
+            <div>{{ item.category }}</div>
+          </div>
+          <h4 class="result">Ingredients</h4>
+          <template v-for="ingredient in item.ingredients">
+            <div class="result">
+              {{ ingredient.qty }} {{ ingredient.unit }} {{ ingredient.item }}
+            </div>
+          </template>
+          <h4 class="result">Instructions</h4>
+          <template v-for="instruction, index in item.instructions">
+            <div class="result">
+              {{ `Step ${index+1}: ${instruction.action}` }}
+            </div>
+          </template>
         </template>
-      </ul>
+
+      </div>
     </div>
   </div>
 </template>
@@ -54,5 +73,13 @@ const searchRecipes = async () => {
   .heading {
     padding: 1em;
   }
+  /* .recipe-results{
+    display: grid;
+    > .result{
+      grid-template:
+        "a b b" auto
+        "c c c" auto
+    }
+  } */
 }
 </style>
