@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from "vue";
+import { computed, ref } from "vue";
 import Heading from "../ui/UIHeading.vue";
 import Input from "../ui/UIInput.vue";
 import Button from "../ui/UIButton.vue";
@@ -12,7 +12,6 @@ const props = defineProps({
     require: true,
   },
 });
-
 
 const emit = defineEmits(["add-ingredient"]);
 
@@ -45,6 +44,10 @@ console.log("props.ingredients", props.ingredients);
 const closeModal = () => {
   document.getElementById("add-ingredients-modal").close();
 };
+
+const isAddIngredientEnabled = computed(() => {
+ return !!ingredient.value.item && ingredient.value.qty > 0 && !!ingredient.value.unit;
+});
 </script>
 <template>
   <dialog id="add-ingredients-modal">
@@ -56,33 +59,24 @@ const closeModal = () => {
           name="item"
           type="text"
           placeholder="ingredient name"
-          v-model="ingredient.item"
+          v-model.lazy="ingredient.item"
         />
         <Input
           id="qty"
           name="qty"
           type="number"
           placeholder="quantity"
-          v-model="ingredient.qty"
+          v-model.lazy="ingredient.qty"
         />
         <Input
           id="unit"
           name="unit"
           type="text"
           placeholder="unit"
-          v-model="ingredient.unit"
+          v-model.lazy="ingredient.unit"
         />
-        <Button type="submit" label="add ingredient" :primary="true" />
+        <Button type="submit" label="add ingredient" :primary="true" :disabled="!isAddIngredientEnabled" />
         <slot name="ingredient-list"></slot>
-        <!-- <ul class="item-list">
-          <template v-for="ingredient in ingredients">
-            <li class="list-item">
-              {{ ingredient.qty }}
-              {{ ingredient.unit }}
-              {{ ingredient.item }}
-            </li>
-          </template>
-        </ul> -->
       </div>
       <Button
         id="close-ingredient-modal"

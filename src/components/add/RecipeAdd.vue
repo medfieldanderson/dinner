@@ -60,12 +60,6 @@ const isAddRecipeEnabled = computed(() => {
 const addRecipe = async () => {
   model.value.id = uid(16);
 
-  // NOTE:  How should local store and firebase work together
-  // local store
-  console.log("MODEL", model.value);
-  // store.recipes.push(model.value);
-
-  // firebase
   await setDoc(
     doc(db, "recipes", model.value.id),
     Object.assign({}, model.value)
@@ -117,7 +111,7 @@ const showAddModal = (type) => {
       />
       <Button
         type="submit"
-        label="add recipe"
+        label="submit"
         :primary="true"
         :disabled="!isAddRecipeEnabled"
       />

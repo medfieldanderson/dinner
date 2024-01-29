@@ -7,7 +7,7 @@ import MainMenu from "./components/MainMenu.vue";
 
 <template>
   <div class="container">
-    <UIHeading title="What's for Dinner?" class="main-heading"></UIHeading>
+    <UIHeading title="What's for Dinner?" class="main-heading" :style="{'display': 'none'}"></UIHeading>
     <MainMenu class="main-menu" />
     <div class="recipe-app">
       <UIContent class="ui-content">
@@ -55,8 +55,6 @@ import MainMenu from "./components/MainMenu.vue";
     }
   }
 }
-
-
 
 @media (max-width: 600px) {
   .main-heading {
