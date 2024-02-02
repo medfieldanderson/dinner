@@ -1,9 +1,9 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import Heading from "./ui/UIHeading.vue";
+import ListItem from "./ui/UIListItem.vue";
 
-const recipeList = ref([]);
-
+// const recipeList = ref([]);
 // import { collection, getDocs } from "firebase/firestore";
 // import { db } from "../firebase";
 
@@ -36,9 +36,16 @@ onMounted(async () => {
       <li>caeser salad w/ croutons</li>
       <li>ginia surprise</li>
       <li>chili</li>
-      <template v-for="item in recipeList">
+      <!-- <template v-for="item in recipeList">
         <li>{{ item.recipe }}</li>
-      </template>
+      </template> -->
+    </ul>
+  </div>
+  <div>
+    <ul>
+      <ListItem id="mc">mac and cheese</ListItem>
+      <ListItem id="c">chili</ListItem>
+      <ListItem id="mc2">mac and cheese</ListItem>
     </ul>
   </div>
 </template>
@@ -48,22 +55,23 @@ onMounted(async () => {
   border-top: 1px solid slateblue;
   margin: 0 1em;
   flex: 1;
+  ul {
+    padding-inline-start: 1rem;
+    li {
+      text-align: left;
+      list-style-type: decimal;
+      margin: auto 1rem;
+      padding: 0.25rem;
+      &:hover {
+        background-color: #f5e6cb;
+        border-radius: 5px;
+      }
+    }
+  }
+  .heading {
+    padding: 1em;
+  }
 }
 
-.recipe-spotlight > .heading {
-  padding: 1em;
-}
 
-.recipe-spotlight > ul {
-  padding-inline-start: 1rem;
-}
-.recipe-spotlight > ul > li {
-  text-align: left;
-  list-style-type: decimal;
-  margin: auto 1rem;
-}
-.recipe-spotlight > ul > li:hover {
-  background-color: #f5e6cb;
-  border-radius: 20px;
-}
 </style>

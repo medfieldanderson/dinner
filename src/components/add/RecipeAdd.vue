@@ -3,6 +3,7 @@ import { computed, ref } from "vue";
 import Heading from "../ui/UIHeading.vue";
 import Input from "../ui/UIInput.vue";
 import Button from "../ui/UIButton.vue";
+import ListItem from "../ui/UIListItem.vue";
 
 import IngredientAdd from "./IngredientAdd.vue";
 import InstructionAdd from "./InstructionAdd.vue";
@@ -71,6 +72,10 @@ const showAddModal = (type) => {
   const modal = document.getElementById(`add-${type}-modal`);
   modal.showModal();
 };
+
+const deleteItem = (item) => {
+  console.log(item);
+}
 </script>
 <template>
   <div class="recipe-add">
@@ -124,9 +129,9 @@ const showAddModal = (type) => {
         <template #ingredient-list>
           <ul v-if="model.ingredients.length > 0">
             <template v-for="ingredient in model.ingredients">
-              <li>
+              <ListItem :id="ingredient.id" contentType="ingredient" @delete-li="deleteItem" >
                 {{ ingredient.qty }} {{ ingredient.unit }} {{ ingredient.item }}
-              </li>
+              </ListItem>
             </template>
           </ul>
         </template>
@@ -138,10 +143,10 @@ const showAddModal = (type) => {
         <template #instruction-list>
           <ul class="item-list">
             <template v-for="instruction in model.instructions">
-              <li class="list-item">
+              <ListItem :id="instruction.id" contentType="instruction" @delete-li="deleteItem" >
                 {{ instruction.action }}
                 {{ instruction.sort }}
-              </li>
+              </ListItem>
             </template>
           </ul>
         </template>
@@ -150,14 +155,14 @@ const showAddModal = (type) => {
 
     <ul v-if="model.ingredients.length > 0">
       <template v-for="ingredient in model.ingredients">
-        <li>
+        <ListItem :id="ingredient.id" contentType="ingredient" @delete-li="deleteItem" >
           {{ ingredient.qty }} {{ ingredient.unit }} {{ ingredient.item }}
-        </li>
+        </ListItem>
       </template>
     </ul>
     <ul v-if="model.instructions.length > 0">
       <template v-for="instruction in model.instructions">
-        <li>{{ instruction.action }}</li>
+        <ListItem :id="instruction.id" contentType="instruction" @delete-li="deleteItem" >{{ instruction.action }}</ListItem>
       </template>
     </ul>
 
