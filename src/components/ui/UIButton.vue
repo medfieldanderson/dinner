@@ -82,7 +82,7 @@ div.ui-button {
 
       /* filter: grayscale(35%);
       color: gray; */
-      cursor: default;
+      cursor: not-allowed;
       background-color: var(--disabled-bg-color);
       color: var(--disabled-fg-color);
       border: 1px solid var(--disabled-bg-border);

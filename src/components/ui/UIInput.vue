@@ -53,5 +53,6 @@ defineProps({
 
 .ui-input:disabled {
   background-color: bisque;
+  cursor: not-allowed;
 }
 </style>

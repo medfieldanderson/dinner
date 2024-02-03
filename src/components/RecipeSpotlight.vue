@@ -31,11 +31,19 @@ onMounted(async () => {
     /> -->
     <Heading tag="h2" title="Recipe Spotlight" class="heading" />
     <ul>
-      <li>mac and cheese</li>
-      <li>ground meat stew</li>
-      <li>caeser salad w/ croutons</li>
-      <li>ginia surprise</li>
-      <li>chili</li>
+      <ListItem id="1" :deletable="false"
+        >mac and cheese</ListItem
+      >
+      <ListItem id="2" :deletable="false"
+        >ground meat stew</ListItem
+      >
+      <ListItem id="3" :deletable="false"
+        >caeser salad w/ croutons</ListItem
+      >
+      <ListItem id="4" :deletable="false"
+        >ginia surprise</ListItem
+      >
+      <ListItem id="5" :deletable="false">chili</ListItem>
       <!-- <template v-for="item in recipeList">
         <li>{{ item.recipe }}</li>
       </template> -->
@@ -72,6 +80,4 @@ onMounted(async () => {
     padding: 1em;
   }
 }
-
-
 </style>

@@ -12,9 +12,9 @@ const props = defineProps({
     type: String,
     required: true,
   },
-  contentType: {
-    type: String,
-    default: "unspecified",
+  deletable: {
+    type: Boolean,
+    default: true,
   },
 });
 
@@ -28,11 +28,12 @@ const deleteListItem = (e) => {
 <!-- <li -->
 <!-- material-icons-round -->
 <template>
-  <li class="list-item" :class="`${contentType}-list-item`">
+  <li class="list-item">
     <span class="content"><slot></slot></span>
     <span
+      v-if="deletable"
       class="delete material-icons-round"
-      @click="deleteListItem({ type: contentType, id: id })"
+      @click="deleteListItem({ id: id })"
       >clear</span
     >
   </li>

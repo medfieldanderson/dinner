@@ -129,7 +129,7 @@ const deleteItem = (item) => {
         <template #ingredient-list>
           <ul v-if="model.ingredients.length > 0">
             <template v-for="ingredient in model.ingredients">
-              <ListItem :id="ingredient.id" contentType="ingredient" @delete-li="deleteItem" >
+              <ListItem :id="ingredient.id" @delete-li="deleteItem" >
                 {{ ingredient.qty }} {{ ingredient.unit }} {{ ingredient.item }}
               </ListItem>
             </template>
@@ -143,7 +143,7 @@ const deleteItem = (item) => {
         <template #instruction-list>
           <ul class="item-list">
             <template v-for="instruction in model.instructions">
-              <ListItem :id="instruction.id" contentType="instruction" @delete-li="deleteItem" >
+              <ListItem :id="instruction.id" @delete-li="deleteItem" >
                 {{ instruction.action }}
                 {{ instruction.sort }}
               </ListItem>
@@ -155,14 +155,14 @@ const deleteItem = (item) => {
 
     <ul v-if="model.ingredients.length > 0">
       <template v-for="ingredient in model.ingredients">
-        <ListItem :id="ingredient.id" contentType="ingredient" @delete-li="deleteItem" >
+        <ListItem :id="ingredient.id" @delete-li="deleteItem" >
           {{ ingredient.qty }} {{ ingredient.unit }} {{ ingredient.item }}
         </ListItem>
       </template>
     </ul>
     <ul v-if="model.instructions.length > 0">
       <template v-for="instruction in model.instructions">
-        <ListItem :id="instruction.id" contentType="instruction" @delete-li="deleteItem" >{{ instruction.action }}</ListItem>
+        <ListItem :id="instruction.id" @delete-li="deleteItem" >{{ instruction.action }}</ListItem>
       </template>
     </ul>
 
