@@ -56,13 +56,14 @@ li {
     margin: 0 0.25rem 0.25rem 0.25rem;
     /* background-color: rgb(250, 69, 69, 0.5); */
     color: #22092c;
-    border: 0.125px solid #22092c;
     border-radius: 45%;
     border-radius: 30%;
-    box-shadow: 2px 2px 2px gray;
+    border: 0.125px solid transparent;
     &:hover {
       background-color: red;
       background-color: rgb(250, 69, 69, 0.5);
+      box-shadow: 2px 2px 2px gray;
+      border: 0.125px solid gray;
     }
     &:active {
       /* background-color: red; */

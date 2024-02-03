@@ -73,9 +73,16 @@ const showAddModal = (type) => {
   modal.showModal();
 };
 
-const deleteItem = (item) => {
-  console.log(item);
-}
+const deleteIngredient = (item) => {
+  model.value.ingredients = model.value.ingredients.filter(
+    (i) => i.id !== item.id
+  );
+};
+const deleteInstruction = (item) => {
+  model.value.instructions = model.value.instructions.filter(
+    (i) => i.id !== item.id
+  );
+};
 </script>
 <template>
   <div class="recipe-add">
@@ -129,7 +136,7 @@ const deleteItem = (item) => {
         <template #ingredient-list>
           <ul v-if="model.ingredients.length > 0">
             <template v-for="ingredient in model.ingredients">
-              <ListItem :id="ingredient.id" @delete-li="deleteItem" >
+              <ListItem :id="ingredient.id" @delete-li="deleteIngredient">
                 {{ ingredient.qty }} {{ ingredient.unit }} {{ ingredient.item }}
               </ListItem>
             </template>
@@ -143,7 +150,7 @@ const deleteItem = (item) => {
         <template #instruction-list>
           <ul class="item-list">
             <template v-for="instruction in model.instructions">
-              <ListItem :id="instruction.id" @delete-li="deleteItem" >
+              <ListItem :id="instruction.id" @delete-li="deleteInstruction">
                 {{ instruction.action }}
                 {{ instruction.sort }}
               </ListItem>
@@ -155,14 +162,16 @@ const deleteItem = (item) => {
 
     <ul v-if="model.ingredients.length > 0">
       <template v-for="ingredient in model.ingredients">
-        <ListItem :id="ingredient.id" @delete-li="deleteItem" >
+        <ListItem :id="ingredient.id" @delete-li="deleteIngredient">
           {{ ingredient.qty }} {{ ingredient.unit }} {{ ingredient.item }}
         </ListItem>
       </template>
     </ul>
     <ul v-if="model.instructions.length > 0">
       <template v-for="instruction in model.instructions">
-        <ListItem :id="instruction.id" @delete-li="deleteItem" >{{ instruction.action }}</ListItem>
+        <ListItem :id="instruction.id" @delete-li="deleteInstruction">{{
+          instruction.action
+        }}</ListItem>
       </template>
     </ul>
 
