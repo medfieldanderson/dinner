@@ -16,7 +16,7 @@ console.log(pageTitle);
   </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .icon{
   font-size:10em;
 }

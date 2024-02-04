@@ -88,4 +88,4 @@ const isAddIngredientEnabled = computed(() => {
   </dialog>
 </template>
 
-<style scoped></style>
+<style lang="scss" scoped></style>

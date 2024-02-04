@@ -23,7 +23,7 @@ import MainMenu from "./components/MainMenu.vue";
   </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .main-heading {
   font-family: Cookie, Gabriola, Segoe Script, serif;
   color: brown;

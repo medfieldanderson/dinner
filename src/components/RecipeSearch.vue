@@ -41,7 +41,7 @@ const searchRecipes = async () => {
     <div>
       <h2>Results</h2>
       <div class="recipe-results">
-        <template v-for="item in recipeList">
+        <template v-for="item, index in recipeList" :key="index">
           <div class="result">
             <h2>{{ item.recipe }}</h2>
           </div>
@@ -52,7 +52,7 @@ const searchRecipes = async () => {
           <div class="result">
             <h3>Ingredients</h3>
             <ul>
-              <template v-for="(ingredient, index, max) in item.ingredients">
+              <template v-for="(ingredient, index) in item.ingredients" :key="ingredient.id">
                 <span>
                   {{ ingredient.item
                   }}{{ listFormatter(index, item.ingredients.length) }}
@@ -67,7 +67,7 @@ const searchRecipes = async () => {
   </div>
 </template>
 
-<style scoped>
+<style lang="scss"   scoped>
 .recipe-search {
   display: flex;
   flex-direction: column;

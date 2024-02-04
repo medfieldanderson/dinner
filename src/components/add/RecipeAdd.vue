@@ -135,7 +135,7 @@ const deleteInstruction = (item) => {
       >
         <template #ingredient-list>
           <ul v-if="model.ingredients.length > 0">
-            <template v-for="ingredient in model.ingredients">
+            <template v-for="ingredient in model.ingredients" :key="ingredient.id">
               <ListItem :id="ingredient.id" @delete-li="deleteIngredient">
                 {{ ingredient.qty }} {{ ingredient.unit }} {{ ingredient.item }}
               </ListItem>
@@ -149,7 +149,7 @@ const deleteInstruction = (item) => {
       >
         <template #instruction-list>
           <ul class="item-list">
-            <template v-for="instruction in model.instructions">
+            <template v-for="instruction in model.instructions" :key="instruction.id">
               <ListItem :id="instruction.id" @delete-li="deleteInstruction">
                 {{ instruction.action }}
                 {{ instruction.sort }}
@@ -161,14 +161,14 @@ const deleteInstruction = (item) => {
     </div>
 
     <ul v-if="model.ingredients.length > 0">
-      <template v-for="ingredient in model.ingredients">
+      <template v-for="ingredient in model.ingredients" :key="ingredient">
         <ListItem :id="ingredient.id" @delete-li="deleteIngredient">
           {{ ingredient.qty }} {{ ingredient.unit }} {{ ingredient.item }}
         </ListItem>
       </template>
     </ul>
     <ul v-if="model.instructions.length > 0">
-      <template v-for="instruction in model.instructions">
+      <template v-for="instruction in model.instructions" :key="instruction.id">
         <ListItem :id="instruction.id" @delete-li="deleteInstruction">{{
           instruction.action
         }}</ListItem>
@@ -179,7 +179,7 @@ const deleteInstruction = (item) => {
   </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .recipe-add {
   border-top: 1px solid darkorange;
   margin: 0 1em;

@@ -23,7 +23,7 @@ defineProps({
   </RouterLink>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .ui-link-anchor{
   --ui-link-color: #FE7A36;
   --ui-link-shadow: rgb(165, 42, 42);

@@ -22,7 +22,7 @@ defineProps({
   </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 h3 {
   margin: 0;
   padding: 0;

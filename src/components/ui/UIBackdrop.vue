@@ -12,7 +12,7 @@
   </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .animation-container {
   position: absolute;
   /* display:inline; */

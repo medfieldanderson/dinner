@@ -39,7 +39,7 @@ const deleteListItem = (e) => {
   </li>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 li {
   /* display: block; */
   margin: 0;

@@ -42,17 +42,17 @@ defineProps({
   />
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .ui-input {
   border: 1px solid orange;
   border-radius: 5px;
   padding: 0.75rem;
   margin: 0.25em 0.25em 0 0 ;
   font-size: 1em;
+  &:disabled {
+    background-color: bisque;
+    cursor: not-allowed;
+  }
 }
 
-.ui-input:disabled {
-  background-color: bisque;
-  cursor: not-allowed;
-}
 </style>

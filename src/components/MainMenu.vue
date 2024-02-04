@@ -42,7 +42,7 @@ import UILink from "./ui/UILink.vue";
   </nav>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .recipe-app-menu {
   display: flex;
   flex-direction: column;

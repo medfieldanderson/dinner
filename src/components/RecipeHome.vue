@@ -44,7 +44,7 @@ const closeModal = () => {
   </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .recipe-home {
   border-top: 1px solid darkorange;
   margin: 0 1em;

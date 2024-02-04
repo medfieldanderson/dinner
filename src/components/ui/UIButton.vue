@@ -36,7 +36,7 @@ defineProps({
   </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 div.ui-button {
   --button-bg-color: rgb(214, 240, 240);
   --button-fg-color: #222;
@@ -79,7 +79,6 @@ div.ui-button {
       filter: brightness(110%);
     }
     &:disabled {
-
       /* filter: grayscale(35%);
       color: gray; */
       cursor: not-allowed;
