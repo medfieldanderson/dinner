@@ -1,5 +1,6 @@
 <script setup>
-import { computed, ref } from "vue";
+import { computed, onMounted, ref } from "vue";
+import { useRoute } from "vue-router";
 import Heading from "../ui/UIHeading.vue";
 import Input from "../ui/UIInput.vue";
 import Button from "../ui/UIButton.vue";
@@ -12,6 +13,20 @@ import { uid } from "uid/secure";
 
 import { doc, setDoc } from "firebase/firestore";
 import { db } from "../../firebase";
+
+import { useRecipeStore } from "../../stores/RecipeStore";
+
+const store = useRecipeStore();
+
+const route = useRoute();
+const id = Object.hasOwn(route.params, "id") ? route.params["id"] : "";
+const pageTitle = id === "" ? "Add Recipe" : "Edit Recipe";
+
+const urlHasId = () => {
+  return Object.hasOwn(route.params, "id");
+};
+
+console.log("URL has ID?", urlHasId());
 
 const model = ref({
   id: "",
@@ -83,10 +98,20 @@ const deleteInstruction = (item) => {
     (i) => i.id !== item.id
   );
 };
+onMounted(() => {
+  if (urlHasId()) {
+    const currentRecipe = store.searchResults.filter(
+      (recipe) => (recipe.id = id)
+    )[0];
+
+    console.log("RecipeAdd mounted.", currentRecipe, currentRecipe.recipe);
+    model.value = Object.assign({}, currentRecipe);
+  }
+});
 </script>
 <template>
   <div class="recipe-add">
-    <Heading tag="h2" title="Add Recipe" class="heading" />
+    <Heading tag="h2" :title="pageTitle" class="heading" />
     <form @submit.prevent="addRecipe">
       <div>
         <Input
@@ -135,7 +160,10 @@ const deleteInstruction = (item) => {
       >
         <template #ingredient-list>
           <ul v-if="model.ingredients.length > 0">
-            <template v-for="ingredient in model.ingredients" :key="ingredient.id">
+            <template
+              v-for="ingredient in model.ingredients"
+              :key="ingredient.id"
+            >
               <ListItem :id="ingredient.id" @delete-li="deleteIngredient">
                 {{ ingredient.qty }} {{ ingredient.unit }} {{ ingredient.item }}
               </ListItem>
@@ -149,7 +177,10 @@ const deleteInstruction = (item) => {
       >
         <template #instruction-list>
           <ul class="item-list">
-            <template v-for="instruction in model.instructions" :key="instruction.id">
+            <template
+              v-for="instruction in model.instructions"
+              :key="instruction.id"
+            >
               <ListItem :id="instruction.id" @delete-li="deleteInstruction">
                 {{ instruction.action }}
                 {{ instruction.sort }}

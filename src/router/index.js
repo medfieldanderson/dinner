@@ -43,6 +43,11 @@ const router = createRouter({
       name: "takeout",
       component: UnderConstruction
     },
+    {
+      path: "/edit-recipe/:id",
+      name: "edit-recipe",
+      component: RecipeAdd
+    },
   ],
 });
 

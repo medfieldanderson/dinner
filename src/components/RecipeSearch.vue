@@ -4,21 +4,23 @@ import Heading from "./ui/UIHeading.vue";
 import Button from "./ui/UIButton.vue";
 import Input from "./ui/UIInput.vue";
 
+import { useRecipeStore } from "../stores/RecipeStore";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "../firebase";
 import { listFormatter } from "../util/string-util";
+import router from "../router";
+
+const store = useRecipeStore();
 
 const recipesRef = collection(db, "recipes");
 
 const inputRecipe = ref("");
 
-const recipeList = ref([]);
-
 const searchRecipes = async () => {
   const q = query(recipesRef, where("recipe", "==", inputRecipe.value));
   const querySnapshot = await getDocs(q);
 
-  recipeList.value = [];
+  store.searchResults = [];
   let results = [];
   querySnapshot.forEach((doc) => {
     console.log(doc.id, " => ", doc.data(), doc.data().recipe);
@@ -26,8 +28,14 @@ const searchRecipes = async () => {
     results.push(doc.data());
     console.log(results);
   });
-  Object.assign(recipeList.value, results);
+  Object.assign(store.searchResults, results);
 };
+
+const editRecipe = (recipe) => {
+  console.log("edit recipe", recipe.id);
+  router.push(`/edit-recipe/${recipe.id}`);
+  // store.setCurrentRecipe(recipe.id);
+}
 </script>
 <template>
   <div class="recipe-search">
@@ -41,15 +49,10 @@ const searchRecipes = async () => {
     <div>
       <h2>Results</h2>
       <div class="recipe-results">
-        <template v-for="item, index in recipeList" :key="index">
-          <div class="result">
+        <template v-for="item, index in store.searchResults" :key="index">
+          <div class="result" @click="editRecipe({id: item.id})">
             <h2>{{ item.recipe }}</h2>
-          </div>
-          <div class="result">
-            <div>{{ item.cuisine }}</div>
-            <div>{{ item.category }}</div>
-          </div>
-          <div class="result">
+            <div>{{ item.cuisine }} {{ item.category }}</div>
             <h3>Ingredients</h3>
             <ul>
               <template v-for="(ingredient, index) in item.ingredients" :key="ingredient.id">
@@ -60,14 +63,13 @@ const searchRecipes = async () => {
               </template>
             </ul>
           </div>
-
         </template>
       </div>
     </div>
   </div>
 </template>
 
-<style lang="scss"   scoped>
+<style lang="scss" scoped>
 .recipe-search {
   display: flex;
   flex-direction: column;
@@ -91,6 +93,7 @@ const searchRecipes = async () => {
       }
     }
     .result {
+      cursor: pointer;
       h2 {
         text-align: center;
       }
