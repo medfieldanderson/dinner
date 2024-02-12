@@ -60,7 +60,7 @@ div.ui-button {
     border-radius: 8px;
     transition: border-color 0.75s;
     margin: 0.5rem;
-    padding: 0.6em 1.2em;
+    padding: 0.5em 1em;
 
     /* filter: hue-rotate(65deg); */
 

@@ -76,8 +76,5 @@ onMounted(async () => {
       }
     }
   }
-  .heading {
-    padding: 1em;
-  }
 }
 </style>

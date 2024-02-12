@@ -213,7 +213,7 @@ onMounted(() => {
 <style lang="scss" scoped>
 .recipe-add {
   border-top: 1px solid darkorange;
-  margin: 0 1em;
+  // margin: 0 1em;
   width: 100%;
   .ingredient-list,
   .instruction-list {
@@ -225,9 +225,6 @@ onMounted(() => {
     padding-right: 0.5rem;
   }
   .sub-heading,
-  > .heading {
-    padding: 1em;
-  }
   > .btn {
     padding: 1em;
   }

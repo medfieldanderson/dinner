@@ -49,9 +49,6 @@ const closeModal = () => {
   border-top: 1px solid darkorange;
   margin: 0 1em;
   flex: 1;
-  .heading {
-    padding: 1em;
-  }
   main > p {
       text-align: left;
       padding: 0 1em;

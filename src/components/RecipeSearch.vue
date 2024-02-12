@@ -76,9 +76,6 @@ const editRecipe = (recipe) => {
   border-top: 1px solid palegreen;
   margin: 0 1em;
   flex: 1;
-  .heading {
-    padding: 1em;
-  }
   .recipe-results {
     display: grid;
     gap: 1.5em;

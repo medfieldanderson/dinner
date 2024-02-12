@@ -6,32 +6,30 @@ import MainMenu from "./components/MainMenu.vue";
 </script>
 
 <template>
-  <div class="container">
-    <!-- <UIHeading title="What's for Dinner?" class="main-heading" :style="{'display': 'none'}"></UIHeading> -->
-    <UIHeading title="What's for Dinner?" class="main-heading" ></UIHeading>
+  <div>
     <MainMenu class="main-menu" />
-    <div class="recipe-app">
-      <UIContent class="ui-content">
-        <div class="main-content">
-          <div class="recipe-app-content">
-            <router-view></router-view>
+    <div class="container">
+      <!-- <UIHeading title="What's for Dinner?" class="main-heading" :style="{'display': 'none'}"></UIHeading> -->
+      <div class="recipe-app">
+        <UIContent class="ui-content">
+          <div class="main-content">
+            <div class="recipe-app-content">
+              <router-view></router-view>
+            </div>
           </div>
-        </div>
-      </UIContent>
-      <!-- <UIBackdrop class="ui-backdrop"/> -->
+        </UIContent>
+        <!-- <UIBackdrop class="ui-backdrop"/> -->
+      </div>
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
-.main-heading {
-  font-family: Cookie, Gabriola, Segoe Script, serif;
-  color: brown;
-  font-size: 4rem;
-  margin-top: 2rem;
+.container {
+  display: flex;
 }
 .main-menu {
-  position: absolute;
+  // position: absolute;
   max-width: 100%;
   text-align: center;
 }
@@ -57,17 +55,8 @@ import MainMenu from "./components/MainMenu.vue";
   }
 }
 
-@media (max-width: 600px) {
-  .main-heading {
-    font-size: 3rem;
-  }
-}
 </style>
 <style>
-@font-face {
-  font-family: Cookie;
-  src: url("../src/assets/fonts/Cookie/Cookie-Regular.ttf");
-}
 @font-face {
   font-family: Inter-Regular;
   src: url("../src/assets/fonts/Inter/static/Inter-Regular.ttf");
