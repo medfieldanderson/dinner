@@ -1,13 +1,7 @@
 <script setup>
 import Link from "./ui/UILink.vue";
-import Heading from "./ui/UIHeading.vue";
 </script>
 <template>
-  <Heading
-    title="What's for Dinner?"
-    class="main-heading"
-    alignment="left"
-  ></Heading>
   <nav class="recipe-app-menu">
     <Link class="recipe-app-menu-item" dest="/" label="Home" icon="home"></Link>
     <Link
@@ -44,14 +38,6 @@ import Heading from "./ui/UIHeading.vue";
 </template>
 
 <style lang="scss" scoped>
-.main-heading {
-  font-family: Cookie, Gabriola, Segoe Script, serif;
-  color: brown;
-  color: #2B2A4C;
-  font-size: 2rem;
-  padding-left: 2rem;
-}
-
 .recipe-app-menu {
   display: flex;
   flex-direction: row;
@@ -60,7 +46,7 @@ import Heading from "./ui/UIHeading.vue";
   width: fit-content;
   font-family: "Inter-Regular", "sans-serif";
   z-index: 1;
-  padding: 0 1em 0 2em;
+  padding-top: 0.5em;
   .recipe-app-menu-item {
     font-size: 0.5em;
     padding: 0;
@@ -71,14 +57,5 @@ import Heading from "./ui/UIHeading.vue";
   .recipe-app-menu-item {
     font-size: 0.375rem;
   }
-}
-@media (max-width: 600px) {
-  .main-heading {
-    font-size: 3rem;
-  }
-}
-@font-face {
-  font-family: Cookie;
-  src: url("../src/assets/fonts/Cookie/Cookie-Regular.ttf");
 }
 </style>

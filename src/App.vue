@@ -1,35 +1,75 @@
 <script setup>
 import UIBackdrop from "./components/ui/UIBackdrop.vue";
 import UIContent from "./components/ui/UIContent.vue";
-import UIHeading from "./components/ui/UIHeading.vue";
+import Heading from "./components/ui/UIHeading.vue";
 import MainMenu from "./components/MainMenu.vue";
 </script>
 
 <template>
-  <div>
+  <header class="nav-header">
+    <Heading
+      title="What's for Dinner?"
+      class="main-heading"
+      alignment="left"
+    ></Heading>
     <MainMenu class="main-menu" />
-    <div class="container">
-      <!-- <UIHeading title="What's for Dinner?" class="main-heading" :style="{'display': 'none'}"></UIHeading> -->
-      <div class="recipe-app">
-        <UIContent class="ui-content">
-          <div class="main-content">
-            <div class="recipe-app-content">
-              <router-view></router-view>
-            </div>
+  </header>
+  <div class="container">
+    <div class="recipe-app">
+      <UIContent class="ui-content">
+        <div class="main-content">
+          <div class="recipe-app-content">
+            <router-view></router-view>
           </div>
-        </UIContent>
-        <!-- <UIBackdrop class="ui-backdrop"/> -->
-      </div>
+        </div>
+      </UIContent>
+      <!-- <UIBackdrop class="ui-backdrop"/> -->
     </div>
   </div>
 </template>
+<style>
+:root {
+  --ui-heading-title: #743c3c;
+  --ui-heading-title: #BFCFE7;
+  --ui-heading-title: #E8C872;
+  --ui-heading-title: #EE7214;
+  --ui-heading-title: #637A9F;
+  --ui-heading-title: brown;
+  --ui-link-color: #FE7A36;
+  --ui-link-color: #FF8911;
+  --ui-link-color: #607274;
+  --ui-link-color: #ED7D31;
+  --ui-link-color: #EE7214;
+  --ui-link-color: #363062;
+  --ui-link-color: #525CEB;
+  --ui-link-color: #405576;
+  --ui-link-shadow: #405576;
+
+  --ui-dialog-background: #BFCFE7;
+}
+</style>
 
 <style lang="scss" scoped>
+.nav-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: flex-start;
+
+}
 .container {
   display: flex;
 }
+.main-heading {
+  font-family: Cookie, Gabriola, Segoe Script, serif;
+  color: var(--ui-heading-title);
+  font-size: 2.5rem;
+  padding: 1rem 2rem;
+  text-shadow: 1px 1px 5px var(--ui-link-color);
+  // 1px 1px 5px var(--ui-link-shadow);
+}
+
 .main-menu {
-  // position: absolute;
   max-width: 100%;
   text-align: center;
 }
@@ -42,7 +82,7 @@ import MainMenu from "./components/MainMenu.vue";
   .main-content {
     display: inline-flex;
     flex-direction: row;
-    margin-left: 4em;
+    // margin-left: 4em;
     .recipe-app-content {
       font-family: Inter-Regular;
       display: flex;
@@ -54,11 +94,33 @@ import MainMenu from "./components/MainMenu.vue";
     }
   }
 }
-
 </style>
 <style>
 @font-face {
   font-family: Inter-Regular;
   src: url("../src/assets/fonts/Inter/static/Inter-Regular.ttf");
 }
+@media (max-width: 600px) {
+  .main-heading {
+    font-size: 3rem;
+  }
+}
+@font-face {
+  font-family: Cookie;
+  src: url("../src/assets/fonts/Cookie/Cookie-Regular.ttf");
+}
+dialog {
+  border: 1px solid navy;
+  border-radius: 15px;
+  /* background-color: rgb(255, 235, 205, 80%); */
+  background-color: var(--ui-dialog-background);
+  backdrop-filter: blur(3px);
+  box-shadow: 10px 5px 5px var(--ui-link-shadow);
+
+  width: 30rem;
+  &::backdrop {
+    background: rgb(66, 71, 105, 55%);
+  }
+}
+
 </style>

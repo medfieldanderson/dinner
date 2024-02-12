@@ -46,8 +46,9 @@ const closeModal = () => {
 
 <style lang="scss" scoped>
 .recipe-home {
-  border-top: 1px solid darkorange;
   margin: 0 1em;
+  font-size: medium;
+  line-height: 1.5;
   flex: 1;
   main > p {
       text-align: left;

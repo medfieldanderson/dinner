@@ -73,24 +73,24 @@ const editRecipe = (recipe) => {
 .recipe-search {
   display: flex;
   flex-direction: column;
-  border-top: 1px solid palegreen;
   margin: 0 1em;
   flex: 1;
   .recipe-results {
     display: grid;
     gap: 1.5em;
     grid: repeat(3, 60px / auto-flow 80px);
-    border: 0.125px solid rgb(0, 0, 0, 0.1);
     padding: 0.5rem;
     align-items: baseline;
-    &:hover {
-      box-shadow: 2px 2px 2px gray;
-      h2 {
-        filter: drop-shadow(1px 1px 1px silver);
-      }
-    }
     .result {
       cursor: pointer;
+      border: 0.125px solid rgb(0, 0, 0, 0.1);
+      padding: 1em;
+      &:hover {
+        box-shadow: 2px 2px 2px gray;
+        h2 {
+          filter: drop-shadow(1px 1px 1px silver);
+        }
+      }
       h2 {
         text-align: center;
       }

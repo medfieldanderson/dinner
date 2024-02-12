@@ -25,10 +25,6 @@ defineProps({
 
 <style lang="scss" scoped>
 .ui-link-anchor{
-  --ui-link-color: #FE7A36;
-  --ui-link-color: #FF8911;
-  --ui-link-color: #EE7214;
-  --ui-link-shadow: rgb(165, 42, 42);
   margin: 0.25rem;
   .ui-link {
     * {
