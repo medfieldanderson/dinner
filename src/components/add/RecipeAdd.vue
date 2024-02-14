@@ -100,13 +100,14 @@ const deleteInstruction = (item) => {
 };
 onMounted(() => {
   if (urlHasId()) {
-    const currentRecipe = store.searchResults.filter(
+    console.log("URL HAD ID");
+    const currentRecipe = store.recipes.filter(
       (recipe) => (recipe.id = id)
-    )[0];
-
-    console.log("RecipeAdd mounted.", currentRecipe, currentRecipe.recipe);
-    model.value = Object.assign({}, currentRecipe);
-  }
+      )[0];
+      
+      model.value = Object.assign({}, currentRecipe);
+      // console.log("RecipeAdd mounted.", currentRecipe, currentRecipe.recipe);
+    }
 });
 </script>
 <template>

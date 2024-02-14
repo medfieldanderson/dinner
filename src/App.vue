@@ -29,23 +29,24 @@ import MainMenu from "./components/MainMenu.vue";
 </template>
 <style>
 :root {
+  --ui-heading-title: #637a9f;
+  --ui-heading-title: #ee7214;
+  --ui-heading-title: #e8c872;
+  --ui-heading-title: #bfcfe7;
   --ui-heading-title: #743c3c;
-  --ui-heading-title: #BFCFE7;
-  --ui-heading-title: #E8C872;
-  --ui-heading-title: #EE7214;
-  --ui-heading-title: #637A9F;
   --ui-heading-title: brown;
-  --ui-link-color: #FE7A36;
-  --ui-link-color: #FF8911;
-  --ui-link-color: #607274;
-  --ui-link-color: #ED7D31;
-  --ui-link-color: #EE7214;
-  --ui-link-color: #363062;
-  --ui-link-color: #525CEB;
+  --ui-link-color: #fe7a36;
+  --ui-link-color: #ff8911;
+  --ui-link-color: #ed7d31;
+  --ui-link-color: #ee7214;
+  --ui-link-color: #525ceb;
   --ui-link-color: #405576;
+  --ui-link-color: #363062;
+  --ui-link-color: #607274;
+  --ui-link-color: brown;
   --ui-link-shadow: #405576;
 
-  --ui-dialog-background: #BFCFE7;
+  --ui-dialog-background: #bfcfe7;
 }
 </style>
 
@@ -55,7 +56,6 @@ import MainMenu from "./components/MainMenu.vue";
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: flex-start;
-
 }
 .container {
   display: flex;
@@ -96,6 +96,14 @@ import MainMenu from "./components/MainMenu.vue";
 }
 </style>
 <style>
+.recipe-search {
+  .recipe-results {
+    .result {
+      background-color: #fefdfc;
+    }
+  }
+}
+
 @font-face {
   font-family: Inter-Regular;
   src: url("../src/assets/fonts/Inter/static/Inter-Regular.ttf");
@@ -122,5 +130,4 @@ dialog {
     background: rgb(66, 71, 105, 55%);
   }
 }
-
 </style>

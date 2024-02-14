@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 import Heading from "./ui/UIHeading.vue";
 import Button from "./ui/UIButton.vue";
 import Input from "./ui/UIInput.vue";
@@ -20,15 +20,15 @@ const searchRecipes = async () => {
   const q = query(recipesRef, where("recipe", "==", inputRecipe.value));
   const querySnapshot = await getDocs(q);
 
-  store.searchResults = [];
-  let results = [];
+  store.recipes = [];
+  let recipes = [];
   querySnapshot.forEach((doc) => {
     console.log(doc.id, " => ", doc.data(), doc.data().recipe);
     console.log("doc.data() is ", typeof doc.data());
-    results.push(doc.data());
-    console.log(results);
+    recipes.push(doc.data());
+    console.log(recipes);
   });
-  Object.assign(store.searchResults, results);
+  Object.assign(store.recipes, recipes);
 };
 
 const editRecipe = (recipe) => {
@@ -36,12 +36,20 @@ const editRecipe = (recipe) => {
   router.push(`/edit-recipe/${recipe.id}`);
   // store.setCurrentRecipe(recipe.id);
 }
+
+onMounted(() => {
+  // Object.assign(store.recipes, []);
+  console.log("Recipe Search onmounted");
+  store.recipes = [];
+  document.getElementById("recipe").focus();
+
+});
 </script>
 <template>
   <div class="recipe-search">
     <form @submit.prevent="searchRecipes">
       <Heading tag="h2" title="Recipe Search" class="heading" />
-      <Input name="recipe" placeholder="recipe" v-model="inputRecipe" />
+      <Input id="recipe" name="recipe" placeholder="recipe" v-model="inputRecipe" />
       <!-- <Input name="ingredient" placeholder="ingredient" /> -->
       <Button type="submit" label="search" :primary="true"></Button>
     </form>
@@ -49,11 +57,9 @@ const editRecipe = (recipe) => {
     <div>
       <h2>Results</h2>
       <div class="recipe-results">
-        <template v-for="item, index in store.searchResults" :key="index">
+        <template v-for="item, index in store.recipes" :key="index">
           <div class="result" @click="editRecipe({id: item.id})">
             <h2>{{ item.recipe }}</h2>
-            <div>{{ item.cuisine }} {{ item.category }}</div>
-            <h3>Ingredients</h3>
             <ul>
               <template v-for="(ingredient, index) in item.ingredients" :key="ingredient.id">
                 <span>
@@ -61,6 +67,7 @@ const editRecipe = (recipe) => {
                   }}{{ listFormatter(index, item.ingredients.length) }}
                 </span>
               </template>
+              {{ item.id }}
             </ul>
           </div>
         </template>
