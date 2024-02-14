@@ -3,6 +3,13 @@ import UIBackdrop from "./components/ui/UIBackdrop.vue";
 import UIContent from "./components/ui/UIContent.vue";
 import Heading from "./components/ui/UIHeading.vue";
 import MainMenu from "./components/MainMenu.vue";
+
+import router from "./router";
+
+const navigateHome = () => {
+  console.log("navigate home");
+  router.push("/");
+};
 </script>
 
 <template>
@@ -11,6 +18,7 @@ import MainMenu from "./components/MainMenu.vue";
       title="What's for Dinner?"
       class="main-heading"
       alignment="left"
+      @click="navigateHome"
     ></Heading>
     <MainMenu class="main-menu" />
   </header>
@@ -61,6 +69,7 @@ import MainMenu from "./components/MainMenu.vue";
   display: flex;
 }
 .main-heading {
+  cursor: pointer;
   font-family: Cookie, Gabriola, Segoe Script, serif;
   color: var(--ui-heading-title);
   font-size: 2.5rem;

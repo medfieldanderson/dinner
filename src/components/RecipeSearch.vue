@@ -34,11 +34,9 @@ const searchRecipes = async () => {
 const editRecipe = (recipe) => {
   console.log("edit recipe", recipe.id);
   router.push(`/edit-recipe/${recipe.id}`);
-  // store.setCurrentRecipe(recipe.id);
 }
 
 onMounted(() => {
-  // Object.assign(store.recipes, []);
   console.log("Recipe Search onmounted");
   store.recipes = [];
   document.getElementById("recipe").focus();
@@ -83,15 +81,17 @@ onMounted(() => {
   margin: 0 1em;
   flex: 1;
   .recipe-results {
-    display: grid;
+    display: flex;
     gap: 1.5em;
-    grid: repeat(3, 60px / auto-flow 80px);
+    // grid: repeat(3, 60px / auto-flow 80px);
     padding: 0.5rem;
-    align-items: baseline;
+    // align-items: baseline;
     .result {
       cursor: pointer;
+      border-radius: 15px;
+      max-width: 200px;
       border: 0.125px solid rgb(0, 0, 0, 0.1);
-      padding: 1em;
+      padding: 0.5em;
       &:hover {
         box-shadow: 2px 2px 2px gray;
         h2 {
