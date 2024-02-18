@@ -45,7 +45,6 @@ onMounted(async () => {
 
 <style lang="scss" scoped>
 .recipe-spotlight {
-  margin: 0 1em;
   flex: 1;
   ul {
     padding-inline-start: 1rem;

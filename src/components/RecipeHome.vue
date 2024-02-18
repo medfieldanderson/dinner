@@ -46,7 +46,6 @@ const closeModal = () => {
 
 <style lang="scss" scoped>
 .recipe-home {
-  margin: 0 1em;
   font-size: medium;
   line-height: 1.5;
   flex: 1;

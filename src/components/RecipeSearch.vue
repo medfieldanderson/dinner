@@ -78,7 +78,6 @@ onMounted(() => {
 .recipe-search {
   display: flex;
   flex-direction: column;
-  margin: 0 1em;
   flex: 1;
   .recipe-results {
     display: flex;

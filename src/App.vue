@@ -71,8 +71,7 @@ const navigateHome = () => {
   text-align: center;
 }
 .ui-content {
-  // font-family: inherit;
-  font-family: Inter-Regular, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: inherit;
   
   position: relative;
   margin: 0 auto;
