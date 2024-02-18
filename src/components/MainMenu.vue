@@ -38,13 +38,15 @@ import Link from "./ui/UILink.vue";
 </template>
 
 <style lang="scss" scoped>
+
+
 .recipe-app-menu {
   display: flex;
   flex-direction: row;
   gap: 1em;
   height: fit-content;
   width: fit-content;
-  font-family: "Inter-Regular", "sans-serif";
+  font-family: inherit;
   z-index: 1;
   padding-top: 0.5em;
   .recipe-app-menu-item {

@@ -1,5 +1,4 @@
-<script setup>
-</script>
+<script setup></script>
 
 <template>
   <div class="ui-content">
@@ -8,7 +7,4 @@
 </template>
 
 <style lang="scss" scoped>
-/* .ui-content {
-  width: 100%;
-} */
 </style>

@@ -22,6 +22,7 @@ defineProps({
   },
 });
 </script>
+
 <template>
   <div class="ui-button">
     <button
@@ -48,8 +49,6 @@ div.ui-button {
 
   pointer-events: none;
   button {
-    /* background-color: var(--primary-bg-color);
-    color: var(--primary-fg-color); */
     background-color: var(--button-bg-color);
     color: var(--button-fg-color);
     pointer-events: all;

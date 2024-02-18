@@ -25,6 +25,7 @@ defineProps({
 
 <style lang="scss" scoped>
 .ui-link-anchor{
+  font-family: inherit;
   margin: 0.25rem;
   .ui-link {
     * {

@@ -83,9 +83,7 @@ onMounted(() => {
   .recipe-results {
     display: flex;
     gap: 1.5em;
-    // grid: repeat(3, 60px / auto-flow 80px);
     padding: 0.5rem;
-    // align-items: baseline;
     .result {
       cursor: pointer;
       border-radius: 15px;

@@ -1,5 +1,5 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Inter-Regular, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1;
   font-weight: 400;
 
@@ -67,19 +67,6 @@ h1 {
   font-size: 3.2em;
   line-height: 1.1;
 }
-
-/* dialog {
-  border: 1px solid navy;
-  border-radius: 15px;
-  background-color: rgb(255, 235, 205, 80%);
-  backdrop-filter: blur(3px);
-  box-shadow: 10px 5px 5px rgb(0, 0, 128, 0.45);
-
-  width: 30rem;
-  &::backdrop {
-    background: rgb(66, 71, 105, 55%);
-  }
-} */
 
 ul > li {
   text-align: left;

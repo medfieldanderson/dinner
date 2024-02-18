@@ -48,6 +48,7 @@ defineProps({
   border-radius: 5px;
   padding: 0.5rem;
   margin: 0.25em 0.25em 0 0 ;
+  font-family: inherit;
   font-size: 1em;
   &:disabled {
     background-color: bisque;

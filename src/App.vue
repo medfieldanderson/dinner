@@ -22,18 +22,10 @@ const navigateHome = () => {
     ></Heading>
     <MainMenu class="main-menu" />
   </header>
-  <div class="container">
-    <div class="recipe-app">
-      <UIContent class="ui-content">
-        <div class="main-content">
-          <div class="recipe-app-content">
-            <router-view></router-view>
-          </div>
-        </div>
-      </UIContent>
-      <!-- <UIBackdrop class="ui-backdrop"/> -->
-    </div>
-  </div>
+  <UIContent class="ui-content">
+    <router-view></router-view>
+  </UIContent>
+  <!-- <UIBackdrop class="ui-backdrop"/> -->
 </template>
 <style>
 :root {
@@ -65,9 +57,6 @@ const navigateHome = () => {
   justify-content: space-around;
   align-items: flex-start;
 }
-.container {
-  display: flex;
-}
 .main-heading {
   cursor: pointer;
   font-family: Cookie, Gabriola, Segoe Script, serif;
@@ -75,53 +64,40 @@ const navigateHome = () => {
   font-size: 2.5rem;
   padding: 1rem 2rem;
   text-shadow: 1px 1px 5px var(--ui-link-color);
-  // 1px 1px 5px var(--ui-link-shadow);
 }
 
 .main-menu {
   max-width: 100%;
   text-align: center;
 }
-.recipe-app {
+.ui-content {
+  // font-family: inherit;
+  font-family: Inter-Regular, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  
   position: relative;
-  max-width: 100%;
-  min-width: 450px;
   margin: 0 auto;
   text-align: center;
-  .main-content {
-    display: inline-flex;
-    flex-direction: row;
-    // margin-left: 4em;
-    .recipe-app-content {
-      font-family: Inter-Regular;
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      align-content: flex-start;
-      justify-content: center;
-      width: 100%;
-    }
-  }
 }
+
 </style>
 <style>
-.recipe-search {
+/* .recipe-search {
   .recipe-results {
     .result {
       background-color: #fefdfc;
     }
   }
-}
+} */
 
 @font-face {
   font-family: Inter-Regular;
   src: url("../src/assets/fonts/Inter/static/Inter-Regular.ttf");
 }
-@media (max-width: 600px) {
+/* @media (max-width: 600px) {
   .main-heading {
     font-size: 3rem;
   }
-}
+} */
 @font-face {
   font-family: Cookie;
   src: url("../src/assets/fonts/Cookie/Cookie-Regular.ttf");
