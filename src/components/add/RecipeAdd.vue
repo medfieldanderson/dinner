@@ -19,17 +19,17 @@ import { useRecipeStore } from "../../stores/RecipeStore";
 const store = useRecipeStore();
 
 const route = useRoute();
-const id = Object.hasOwn(route.params, "id") ? route.params["id"] : "";
-const pageTitle = id === "" ? "Add Recipe" : "Edit Recipe";
-
 const urlHasId = () => {
   return Object.hasOwn(route.params, "id");
 };
+const queryParamId = urlHasId() ? route.params["id"] : "";
 
-console.log("URL has ID?", urlHasId());
+const pageTitle = urlHasId() ? "Edit Recipe" : "Add Recipe";
+
+console.log("URL has ID?", queryParamId);
 
 const model = ref({
-  id: "",
+  id: queryParamId,
   recipe: "",
   cuisine: "",
   category: "",
@@ -73,8 +73,8 @@ const isAddRecipeEnabled = computed(() => {
   );
 });
 
-const addRecipe = async () => {
-  model.value.id = uid(16);
+const addOrEditRecipe = async () => {
+  model.value.id = urlHasId() ? queryParamId : uid(16);
 
   await setDoc(
     doc(db, "recipes", model.value.id),
@@ -100,20 +100,17 @@ const deleteInstruction = (item) => {
 };
 onMounted(() => {
   if (urlHasId()) {
-    console.log("URL HAD ID");
-    const currentRecipe = store.recipes.filter(
-      (recipe) => (recipe.id = id)
-      )[0];
-      
-      model.value = Object.assign({}, currentRecipe);
-      // console.log("RecipeAdd mounted.", currentRecipe, currentRecipe.recipe);
-    }
+    console.log("URL HAS ID", queryParamId);
+    const currentRecipe = store.recipes.filter((item) => (item.id === queryParamId));
+
+    model.value = Object.assign({}, currentRecipe[0]);
+  }
 });
 </script>
 <template>
   <div class="recipe-add">
     <Heading tag="h2" :title="pageTitle" class="heading" />
-    <form @submit.prevent="addRecipe">
+    <form @submit.prevent="addOrEditRecipe">
       <div>
         <Input
           id="recipe"
@@ -160,7 +157,7 @@ onMounted(() => {
         @add-ingredient="addIngredient"
       >
         <template #ingredient-list>
-          <ul v-if="model.ingredients.length > 0">
+          <ul v-if="model.ingredients && model.ingredients.length > 0">
             <template
               v-for="ingredient in model.ingredients"
               :key="ingredient.id"
@@ -192,14 +189,14 @@ onMounted(() => {
       </InstructionAdd>
     </div>
 
-    <ul v-if="model.ingredients.length > 0">
+    <ul v-if="model.ingredients && model.ingredients.length > 0">
       <template v-for="ingredient in model.ingredients" :key="ingredient">
         <ListItem :id="ingredient.id" @delete-li="deleteIngredient">
           {{ ingredient.qty }} {{ ingredient.unit }} {{ ingredient.item }}
         </ListItem>
       </template>
     </ul>
-    <ul v-if="model.instructions.length > 0">
+    <ul v-if="model.instructions && model.instructions.length > 0">
       <template v-for="instruction in model.instructions" :key="instruction.id">
         <ListItem :id="instruction.id" @delete-li="deleteInstruction">{{
           instruction.action
