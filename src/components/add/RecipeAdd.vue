@@ -10,6 +10,7 @@ import IngredientAdd from "./IngredientAdd.vue";
 import InstructionAdd from "./InstructionAdd.vue";
 
 import { uid } from "uid/secure";
+import * as changeCase from "change-case";
 
 import { doc, setDoc } from "firebase/firestore";
 import { db } from "../../firebase";
@@ -19,9 +20,8 @@ import { useRecipeStore } from "../../stores/RecipeStore";
 const store = useRecipeStore();
 
 const route = useRoute();
-const urlHasId = () => {
-  return Object.hasOwn(route.params, "id");
-};
+const urlHasId = () => Object.hasOwn(route.params, "id");
+
 const queryParamId = urlHasId() ? route.params["id"] : "";
 
 const pageTitle = urlHasId() ? "Edit Recipe" : "Add Recipe";
@@ -42,9 +42,9 @@ const addIngredient = (ingredient) => {
   const { item, qty, unit } = ingredient;
   const newIngredient = {
     id: uid(10),
-    item: item,
+    item: item.toLowerCase(),
     qty: qty,
-    unit: unit,
+    unit: unit.toLowerCase(),
   };
   model.value.ingredients.push(newIngredient);
 };
@@ -52,7 +52,11 @@ const addIngredient = (ingredient) => {
 const addInstruction = (instruction) => {
   console.log(instruction);
   const { action, sort } = instruction;
-  const newInstruction = { id: uid(10), action: action, sort: sort };
+  const newInstruction = {
+    id: uid(10),
+    action: action.toLowerCase(),
+    sort: sort,
+  };
   model.value.instructions.push(newInstruction);
 };
 
@@ -76,6 +80,13 @@ const isAddRecipeEnabled = computed(() => {
 const addOrEditRecipe = async () => {
   model.value.id = urlHasId() ? queryParamId : uid(16);
 
+  // custom directive???
+  // computed property???
+  // or some other vue feature to get to lowercase???
+  model.value.recipe = model.value.recipe.toLowerCase();
+  model.value.cuisine = model.value.cuisine.toLowerCase();
+  model.value.category = model.value.category.toLowerCase();
+
   await setDoc(
     doc(db, "recipes", model.value.id),
     Object.assign({}, model.value)
@@ -98,10 +109,13 @@ const deleteInstruction = (item) => {
     (i) => i.id !== item.id
   );
 };
+
 onMounted(() => {
   if (urlHasId()) {
     console.log("URL HAS ID", queryParamId);
-    const currentRecipe = store.recipes.filter((item) => (item.id === queryParamId));
+    const currentRecipe = store.recipes.filter(
+      (item) => item.id === queryParamId
+    );
 
     model.value = Object.assign({}, currentRecipe[0]);
   }

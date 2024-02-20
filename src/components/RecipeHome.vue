@@ -18,6 +18,10 @@ const closeModal = () => {
     <Heading tag="h2" title="Recipe Home" class="heading" />
     <main>
       <p>
+        Convert database to MongoDB.
+        No like searches or case insensivity searches in Firebase.  Grr!  
+      </p>
+      <p>
         Bacon ipsum dolor amet rump corned beef turkey spare ribs pork loin
         pastrami. Beef sausage sirloin, t-bone swine shoulder pork chop tri-tip
         buffalo venison chislic shank leberkas. 
